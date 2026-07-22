@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo-dark.webp.asset.json";
+import logo from "../../LOGOS/Asset 7@2x.webp";
 
 const links = [
   { to: "/", label: "HOME" },
@@ -9,20 +10,43 @@ const links = [
 ] as const;
 
 export function SiteNav({ transparent = false }: { transparent?: boolean }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Header position/background transition classes
+  const headerClass = transparent
+    ? isScrolled
+      ? "fixed inset-x-0 top-0 z-50 bg-white border-b border-border/40 shadow-sm transition-all duration-300"
+      : "absolute inset-x-0 top-0 z-50 bg-transparent transition-all duration-300"
+    : "sticky top-0 z-50 bg-white border-b border-border/60 transition-all duration-300";
+
+  // Padding transition inside the container
+  const paddingClass = isScrolled || !transparent ? "py-4" : "py-5";
+
+  // Text color class for the nav links
+  const textColorClass = transparent && !isScrolled
+    ? "text-white/90 hover:text-white"
+    : "text-black hover:text-navy";
+
+  // Logo color filter (white if transparent and not scrolled, else normal black)
+  const logoFilter = transparent && !isScrolled ? "brightness-0 invert" : "";
+
   return (
-    <header
-      className={
-        transparent
-          ? "absolute inset-x-0 top-0 z-30"
-          : "relative z-30 bg-background border-b border-border/60"
-      }
-    >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
+    <header className={headerClass}>
+      <div className={`mx-auto flex max-w-[1400px] items-center justify-between px-6 ${paddingClass} md:px-10 transition-all duration-300`}>
         <Link to="/" className="flex items-center gap-2">
           <img
-            src={logoAsset.url}
+            src={logo}
             alt="House of Kalaa"
-            className={`h-10 w-auto ${transparent ? "invert brightness-0" : ""}`}
+            className={`h-10 w-auto transition-all ${logoFilter}`}
           />
         </Link>
         <nav className="hidden items-center gap-9 md:flex">
@@ -31,9 +55,7 @@ export function SiteNav({ transparent = false }: { transparent?: boolean }) {
               key={l.to}
               to={l.to}
               activeProps={{ className: "text-navy" }}
-              className={`text-[13px] font-medium tracking-[0.14em] transition-colors hover:text-navy ${
-                transparent ? "text-white/90 hover:text-white" : "text-foreground/80"
-              }`}
+              className={`text-[13px] font-medium tracking-[0.14em] transition-colors ${textColorClass}`}
             >
               {l.label}
             </Link>
@@ -49,3 +71,4 @@ export function SiteNav({ transparent = false }: { transparent?: boolean }) {
     </header>
   );
 }
+

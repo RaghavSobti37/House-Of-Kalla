@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +36,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,28 +73,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "House of Kalaa — Where Craft Becomes Home" },
-      { name: "description", content: "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India." },
+      { title: "House of Kalaa - Where Craft Becomes Home" },
+      {
+        name: "description",
+        content:
+          "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India.",
+      },
       { name: "author", content: "House of Kalaa" },
-      { property: "og:title", content: "House of Kalaa — Where Craft Becomes Home" },
-      { property: "og:description", content: "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India." },
+      { property: "og:title", content: "House of Kalaa - Where Craft Becomes Home" },
+      {
+        property: "og:description",
+        content:
+          "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "House of Kalaa — Where Craft Becomes Home" },
-      { name: "twitter:description", content: "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7ed7594c-0ee8-4294-9e03-9a33b1c255c2/id-preview-21c025b0--e6d7de7e-a2ff-4163-9ff1-51c687033e78.lovable.app-1784627156857.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7ed7594c-0ee8-4294-9e03-9a33b1c255c2/id-preview-21c025b0--e6d7de7e-a2ff-4163-9ff1-51c687033e78.lovable.app-1784627156857.png" },
+      { name: "twitter:title", content: "House of Kalaa - Where Craft Becomes Home" },
+      {
+        name: "twitter:description",
+        content:
+          "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India.",
+      },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.webp", type: "image/webp" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600;1,700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600;1,700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -126,7 +134,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

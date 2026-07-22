@@ -1,23 +1,42 @@
 # House of Kalaa — Kalpeet Lunawat Interiors
 
-A luxury interior architecture and furniture studio website for House of Kalaa. Built to match high-fidelity desktop mockups with a refined navy, gold, and cream palette.
+> A luxury interior architecture and furniture studio website for House of Kalaa. Built to match high-fidelity desktop mockups with a refined navy, gold, and cream palette.
 
-## Tech Stack
+---
 
-- **Framework:** TanStack Start (React 19 + Vite 7 + file-based routing)
-- **Styling:** Tailwind CSS v4 with custom color tokens
+## 🔗 Project Links
+
+- **GitHub Repository:** [https://github.com/RaghavSobti37/House-Of-Kalla](https://github.com/RaghavSobti37/House-Of-Kalla)
+- **Live Deployment URL:** [https://house-of-kalla.vercel.app](https://house-of-kalla.vercel.app)
+
+---
+
+## 🛠️ Technology Stack
+
+Describe the key core technologies and tools utilized in this project:
+
+- **Framework:** TanStack Start (React 19 + Vite 8 + file-based routing)
+- **Styling:** Tailwind CSS v4 with oklch brand colors (Navy, Gold, Cream)
 - **UI Library:** shadcn/ui components
 - **Fonts:** Inter + Playfair Display (Google Fonts)
-- **Runtime:** Edge-ready serverless Worker (Cloudflare Workers)
+- **Hosting & CI/CD:** Vercel (clean URLs routing enabled)
+- **Branding & SVGs:** Custom SVG logos and high-res vector assets
 
-## Complete File Structure
+---
+
+## 📂 Project Directory Structure
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── validate.yml
 ├── .gitignore
 ├── .prettierignore
 ├── .prettierrc
 ├── AGENTS.md
+├── LOGOS/
+├── MASTER MOCKUPS/
 ├── README.md
 ├── bun.lock
 ├── bunfig.toml
@@ -25,88 +44,26 @@ A luxury interior architecture and furniture studio website for House of Kalaa. 
 ├── eslint.config.js
 ├── package.json
 ├── tsconfig.json
+├── vercel.json
 ├── vite.config.ts
 ├── public/
 │   └── favicon.ico
 └── src/
     ├── assets/
-    │   ├── hands-craft.jpg
-    │   ├── hero-kitchen.jpg
-    │   ├── logo-dark.webp.asset.json
-    │   ├── product-dining.jpg
-    │   ├── product-korta.jpg
-    │   ├── product-leather.jpg
-    │   ├── product-loungechair.jpg
-    │   ├── product-sofa.jpg
-    │   ├── products-hero.jpg
-    │   ├── project-bar.jpg
-    │   ├── project-hotel.jpg
-    │   ├── showroom.jpg
-    │   ├── team-director.jpg
-    │   ├── team-kalpeet.jpg
-    │   ├── team-sanjay.jpg
-    │   └── workshop.jpg
+    │   ├── *.jpg
     ├── components/
     │   ├── site-footer.tsx
     │   ├── site-nav.tsx
     │   └── ui/
-    │       ├── accordion.tsx
-    │       ├── alert-dialog.tsx
-    │       ├── alert.tsx
-    │       ├── aspect-ratio.tsx
-    │       ├── avatar.tsx
-    │       ├── badge.tsx
-    │       ├── breadcrumb.tsx
-    │       ├── button.tsx
-    │       ├── calendar.tsx
-    │       ├── card.tsx
-    │       ├── carousel.tsx
-    │       ├── chart.tsx
-    │       ├── checkbox.tsx
-    │       ├── collapsible.tsx
-    │       ├── command.tsx
-    │       ├── context-menu.tsx
-    │       ├── dialog.tsx
-    │       ├── drawer.tsx
-    │       ├── dropdown-menu.tsx
-    │       ├── form.tsx
-    │       ├── hover-card.tsx
-    │       ├── input-otp.tsx
-    │       ├── input.tsx
-    │       ├── label.tsx
-    │       ├── menubar.tsx
-    │       ├── navigation-menu.tsx
-    │       ├── pagination.tsx
-    │       ├── popover.tsx
-    │       ├── progress.tsx
-    │       ├── radio-group.tsx
-    │       ├── resizable.tsx
-    │       ├── scroll-area.tsx
-    │       ├── select.tsx
-    │       ├── separator.tsx
-    │       ├── sheet.tsx
-    │       ├── sidebar.tsx
-    │       ├── skeleton.tsx
-    │       ├── slider.tsx
-    │       ├── sonner.tsx
-    │       ├── switch.tsx
-    │       ├── table.tsx
-    │       ├── tabs.tsx
-    │       ├── textarea.tsx
-    │       ├── toggle-group.tsx
-    │       ├── toggle.tsx
-    │       └── tooltip.tsx
+    │       └── *.tsx
     ├── hooks/
     │   └── use-mobile.tsx
     ├── lib/
-    │   ├── error-capture.ts
-    │   ├── error-page.ts
-    │   ├── lovable-error-reporting.ts
-    │   └── utils.ts
+    │   ├── utils.ts
+    │   └── error-capture.ts
     ├── routeTree.gen.ts
     ├── router.tsx
     ├── routes/
-    │   ├── README.md
     │   ├── __root.tsx
     │   ├── about.tsx
     │   ├── contact.tsx
@@ -118,36 +75,68 @@ A luxury interior architecture and furniture studio website for House of Kalaa. 
     └── styles.css
 ```
 
-## Page Routes
+---
 
-| Route | File | Description |
-|-------|------|-------------|
-| `/` | `src/routes/index.tsx` | Home — kitchen hero, marquee, trusted-by logos, featured projects, testimonials |
-| `/about` | `src/routes/about.tsx` | About — workshop heritage, 35 years of mastery, team portraits |
-| `/portfolio` | `src/routes/portfolio.tsx` | Portfolio — project grid with category filters, gold precision section |
-| `/products` | `src/routes/products.tsx` | Products — furniture catalog, filter tabs, inquiry CTAs |
-| `/contact` | `src/routes/contact.tsx` | Contact — inquiry form, showroom details, map embed |
+## 🚀 Key Features
 
-## Design Tokens
+- **Luxury Aesthetics:** Highly-tailored color palette of Navy (`oklch(0.26 0.14 275)`), Gold (`oklch(0.62 0.11 75)`), and Cream (`oklch(0.99 0.005 90)`) providing a premium high-end feel.
+- **File-Based Routing:** Modern React file-based routing via `@tanstack/react-router` and `@tanstack/react-start`.
+- **Responsive Navigation & Shell:** Dynamic transparent header transition on scroll (`site-nav.tsx`) and robust responsive footer (`site-footer.tsx`).
+- **Interactive Components:** Product catalog with interactive tabs, project gallery filter categories, inquiry form validation, and interactive shadcn/ui elements.
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| Navy | `oklch(0.26 0.14 275)` | Primary brand dark, footer, buttons |
-| Gold | `oklch(0.62 0.11 75)` | Accents, highlights, labels |
-| Cream | `oklch(0.99 0.005 90)` | Backgrounds, subtle surfaces |
+---
 
-## Running Locally
+## 💻 Local Setup & Development
 
-```bash
-bun install
-bun dev
-```
+Follow these steps to set up the repository locally for development:
 
-The dev server runs on `http://localhost:8080`.
+1.  **Clone the Repository:**
 
-## Key Components
+    ```bash
+    git clone https://github.com/RaghavSobti37/House-Of-Kalla.git
+    cd House-Of-Kalla
+    ```
 
-- `src/components/site-nav.tsx` — responsive navigation bar with transparent hero mode
-- `src/components/site-footer.tsx` — dark navy footer with studio address, links, and social icons
-- `src/routes/__root.tsx` — root layout with fonts, SEO metadata, and global shell
-- `src/styles.css` — Tailwind v4 theme tokens, custom marquee animation, and global utilities
+2.  **Install Dependencies:**
+    This project uses Bun package manager. If you don't have Bun, you can install it or use npm/yarn:
+
+    ```bash
+    bun install
+    ```
+
+3.  **Run the Development Server:**
+
+    ```bash
+    bun dev
+    ```
+
+    The local dev server runs at `http://localhost:8080`.
+
+4.  **Lint & Format:**
+    ```bash
+    bun run lint
+    bun run format
+    ```
+
+---
+
+## 📦 Deployment to Vercel
+
+The project is configured for static/serverless hosting on Vercel:
+
+1.  Ensure you have the Vercel CLI installed:
+    ```bash
+    npm install -g vercel
+    ```
+2.  Deploy to production using the linked settings:
+    ```bash
+    vercel --prod
+    ```
+
+---
+
+## 👥 Authors & Handoff
+
+- **Chief Designer & Curator:** House of Kalaa / Kalpeet Lunawat Interiors
+- **Lead Developers:** Gemini/Antigravity Agentic Team
+- **Legacy Parent Company:** Kalpeet Lunawat Interiors

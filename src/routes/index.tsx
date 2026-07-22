@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { Quote } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import heroKitchen from "@/assets/hero-kitchen.jpg";
@@ -15,7 +14,6 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      {/* HERO */}
       <section className="relative">
         <SiteNav transparent />
         <div className="relative h-[86vh] min-h-[620px] w-full overflow-hidden">
@@ -31,16 +29,22 @@ function Index() {
             <h1 className="max-w-2xl font-sans text-4xl font-light leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
               WHERE CRAFT
               <br />
-              BECOMES <span className="italic font-medium">HOME</span>
+              BECOMES <span className="italic font-bold">HOME</span>
             </h1>
-            <p className="mt-4 max-w-md text-sm text-white/85">
+            <p className="mt-2 max-w-xl text-xl text-white/85">
               Furniture and interiors for those who live with intention.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/contact" className="bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90">
+              <Link
+                to="/contact"
+                className="bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90"
+              >
                 BOOK PRIVATE CONSULTATION
               </Link>
-              <Link to="/portfolio" className="border border-white/70 px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-white hover:text-ink">
+              <Link
+                to="/portfolio"
+                className="bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90"
+              >
                 VIEW PORTFOLIO
               </Link>
             </div>
@@ -48,9 +52,8 @@ function Index() {
         </div>
       </section>
 
-      {/* MARQUEE STRIP */}
       <div className="bg-ink py-3 text-white overflow-hidden">
-        <div className="flex animate-[marquee_40s_linear_infinite] whitespace-nowrap text-[11px] tracking-[0.28em] text-white/70">
+        <div className="flex animate-[marquee_40s_linear_infinite] whitespace-nowrap text-[11px] font-medium tracking-[0.28em] text-white/70">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="px-8">
               CURATED FURNITURE ~ TRANSPARENT PRODUCTION LINE ~ NO MDF EVER ~ 35 YEARS OF LEGACY ~
@@ -59,95 +62,158 @@ function Index() {
         </div>
       </div>
 
-      {/* AS TRUSTED BY */}
       <section className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
-        <p className="text-center text-[11px] font-semibold tracking-[0.28em] text-foreground/70">AS TRUSTED BY</p>
+        <p className="text-center text-[11px] font-semibold tracking-[0.28em] text-foreground/70">
+          AS TRUSTED BY
+        </p>
         <div className="mt-10 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
           {["TAJ", "HEXAWARE", "TATA", "BANK OF BARODA", "SBI"].map((brand) => (
-            <div key={brand} className="text-center font-serif text-xl font-semibold tracking-wide text-foreground/60">
+            <div
+              key={brand}
+              className="text-center font-serif text-xl font-semibold tracking-wide text-foreground/60"
+            >
               {brand}
             </div>
           ))}
         </div>
-        <p className="mt-8 text-center text-sm text-muted-foreground">Hundreds of spaces. One standard.</p>
+        <p className="mt-8 text-center text-sm text-muted-foreground">
+          Hundreds of spaces. One standard.
+        </p>
       </section>
 
-      {/* DESIGN YOUR HOME */}
       <section className="mx-auto max-w-[1400px] px-6 pb-20 md:px-10">
-        <p className="text-[11px] font-semibold tracking-[0.24em] text-gold">DESIGN YOUR HOME WITH US</p>
-        <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">
+        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">
+          DESIGN YOUR HOME WITH US
+        </p>
+        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl whitespace-nowrap">
           Transforming raw spaces into sanctuaries of warmth and light.
         </h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 items-stretch">
           <figure className="relative overflow-hidden">
-            <img src={projectBar} alt="Atelier Bauhem residential interior" className="aspect-[4/5] w-full object-cover" width={1200} height={1400} loading="lazy" />
+            <img
+              src={projectBar}
+              alt="Atelier Bauhem residential interior"
+              className="aspect-[4/5] w-full object-cover"
+              width={1200}
+              height={1400}
+              loading="lazy"
+            />
             <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-6 text-white">
-              <p className="text-[11px] tracking-[0.2em] text-white/70">ATELIER BAUHEM, 2023</p>
-              <p className="text-sm">Residential Interior</p>
+              <p className="mt-1 max-w-xl text-xl text-white/85">Atelier Bauhem, 2023</p>
+              <p className="mt-0.5 max-w-xl text-xl text-white/85">Residential Interior</p>
             </figcaption>
           </figure>
-          <figure className="relative overflow-hidden">
-            <img src={projectHotel} alt="Holiday Inn Elite Hospitality project" className="aspect-[4/5] w-full object-cover" width={1200} height={1400} loading="lazy" />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-6 text-white">
-              <p className="text-[11px] tracking-[0.2em] text-white/70">HOLIDAY INN, 2022</p>
-              <p className="text-sm">Elite Hospitality</p>
-            </figcaption>
-          </figure>
-        </div>
-        <div className="mt-8 flex justify-end">
-          <Link to="/portfolio" className="bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90">
-            VIEW FEATURED PROJECTS
-          </Link>
+          <div className="grid grid-rows-[1fr_auto] gap-10">
+            <figure className="relative overflow-hidden aspect-[4/4] md:aspect-auto">
+              <img
+                src={projectHotel}
+                alt="Holiday Inn Elite Hospitality project"
+                className="w-full h-full object-cover md:absolute md:inset-0"
+                width={1200}
+                height={1400}
+                loading="lazy"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-6 text-white z-10">
+                <p className="mt-0.5 max-w-xl text-xl text-white/85">Holiday Inn, 2022</p>
+                <p className="mt-0.5 max-w-xl text-xl text-white/85">Elite Hospitality</p>
+              </figcaption>
+            </figure>
+            <div className="flex justify-end">
+              <Link
+                to="/portfolio"
+                className="bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90"
+              >
+                VIEW FEATURED PROJECTS
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* KORTA / HANDPICKED */}
       <section className="mx-auto max-w-[1400px] px-6 pb-20 md:px-10">
-        <p className="text-[11px] font-semibold tracking-[0.24em] text-gold">RESERVE OUR HANDPICKED PIECES</p>
-        <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">
+        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">
+          RESERVE OUR HANDPICKED PIECES
+        </p>
+        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl whitespace-nowrap">
           Made available in limited numbers for an exclusive audience.
         </h2>
-        <div className="mt-10 grid items-end gap-8 md:grid-cols-[1fr_1.4fr]">
-          <div>
-            <h3 className="text-3xl font-semibold md:text-4xl">Korta Low Table</h3>
-            <p className="mt-2 text-[11px] tracking-[0.2em] text-muted-foreground">WALNUT · MARBLE INSET · EDITION OF 25 · 2024</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/contact" className="bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90">
+        <div className="mt-10 grid items-center gap-8 md:grid-cols-[1fr_1.4fr]">
+          <div className="flex flex-col items-end text-right">
+            <h3 className="text-3xl font-bold md:text-4xl">Korta Low Table</h3>
+            <p className="mt-2 max-w-xl text-xl text-black/85">
+              PATENTED BRONZE | COLLECTION OF 2025
+            </p>
+            <div className="mt-8 flex flex-col gap-3 w-fit">
+              <Link
+                to="/contact"
+                className="w-full text-center bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90"
+              >
                 SPEAK TO THE CURATOR
               </Link>
-              <Link to="/products" className="bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90">
+              <Link
+                to="/products"
+                className="w-full text-center bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90"
+              >
                 VIEW LOOKBOOK
               </Link>
             </div>
           </div>
-          <img src={productKorta} alt="Korta low table" className="w-full object-cover" width={1400} height={1000} loading="lazy" />
+          <img
+            src={productKorta}
+            alt="Korta low table"
+            className="w-full object-cover"
+            width={1400}
+            height={1000}
+            loading="lazy"
+          />
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="mx-auto max-w-[1400px] px-6 pb-8 md:px-10">
-        <div className="flex items-center gap-3">
-          <p className="text-[11px] font-semibold tracking-[0.24em] text-gold">WHAT OUR CLIENTS SAY</p>
-          <Quote className="h-5 w-5 text-gold" strokeWidth={1.5} />
+      <section className="mx-auto max-w-[1400px] px-6 pt-20 pb-8 md:px-10">
+        <div className="flex items-end gap-3">
+          <p className="text-[15px] font-semibold tracking-[0.10em] text-gold leading-none">
+            WHAT OUR CLIENTS SAY
+          </p>
+          <span className="font-serif text-gold text-8xl leading-[0.3] select-none opacity-40">”</span>
         </div>
       </section>
-      <section className="bg-navy py-16 text-white">
-        <div className="mx-auto grid max-w-[1400px] gap-6 px-6 md:grid-cols-2 md:px-10">
-          {[
-            { text: "Exceptional service. No doubts at all. I am super happy with them and recommend it to everyone out there.", author: "Anita" },
-            { text: "You can trust House of Kalaa with your eyes closed. They will deliver like no other.", author: "Becky" },
-          ].map((t) => (
-            <blockquote key={t.author} className="border border-white/15 p-8">
-              <Quote className="h-8 w-8 text-gold" strokeWidth={1.5} />
-              <p className="mt-6 text-white/80 leading-relaxed">{t.text}</p>
-              <footer className="mt-6 text-right text-sm text-white/90">— {t.author}</footer>
-            </blockquote>
-          ))}
+
+      <section className="bg-navy py-20 text-white md:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="grid gap-8 md:grid-cols-2">
+            {[
+              {
+                text: "Exceptional service. No doubts at all. I am super happy with them and recommend it to everyone out there.",
+                author: "Anita",
+              },
+              {
+                text: "You can trust House of Kalaa with your eyes closed. They will deliver like no other.",
+                author: "Ricky.",
+              },
+            ].map((t) => (
+              <blockquote
+                key={t.author}
+                className="border border-white/15 rounded-[20px] p-8 md:p-10 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="block font-serif text-gold text-[180px] leading-[0.3] mb-8 select-none opacity-40">“</span>
+                  <p className="font-serif text-2xl italic leading-[1.35] text-white/80 md:text-[32px]">
+                    {t.text}
+                  </p>
+                </div>
+                <div className="text-right mt-10 font-serif italic text-white/60 text-lg md:text-xl">
+                  - {t.author}
+                </div>
+              </blockquote>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="py-16 text-center">
-        <p className="text-[11px] tracking-[0.28em] text-gold">THE SAME STANDARD, <span className="italic text-foreground">EVERYTIME.</span></p>
+        <p className="text-[11px] tracking-[0.28em] text-gold">
+          THE SAME STANDARD, <span className="italic text-foreground">EVERYTIME.</span>
+        </p>
       </section>
 
       <SiteFooter />

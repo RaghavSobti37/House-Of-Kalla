@@ -13,7 +13,11 @@ export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title: "Products — House of Kalaa" },
-      { name: "description", content: "A curated collection of contemporary masterworks. Seating, tables, storage and bespoke design." },
+      {
+        name: "description",
+        content:
+          "A curated collection of contemporary masterworks. Seating, tables, storage and bespoke design.",
+      },
       { property: "og:title", content: "Products — House of Kalaa" },
       { property: "og:description", content: "Every piece here, has been chosen." },
     ],
@@ -37,7 +41,13 @@ function ProductsPage() {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <section className="relative">
-        <img src={productsHero} alt="Curated furniture collection" className="h-[52vh] min-h-[380px] w-full object-cover" width={1920} height={900} />
+        <img
+          src={productsHero}
+          alt="Curated furniture collection"
+          className="h-[52vh] min-h-[380px] w-full object-cover"
+          width={1920}
+          height={900}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
         <div className="absolute inset-0">
           <div className="mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 md:px-10">
@@ -47,7 +57,8 @@ function ProductsPage() {
               <span className="font-medium italic">HAS BEEN CHOSEN.</span>
             </h1>
             <p className="mt-4 max-w-lg text-sm text-white/85">
-              A curated collection contemporary masterworks. Every object is a dialogue between raw material and human precision.
+              A curated collection contemporary masterworks. Every object is a dialogue between raw
+              material and human precision.
             </p>
           </div>
         </div>
@@ -86,16 +97,28 @@ function ProductsPage() {
   );
 }
 
-function ProductCard({ name, image, className = "" }: { name: string; image: string; className?: string }) {
+function ProductCard({
+  name,
+  image,
+  className = "",
+}: {
+  name: string;
+  image: string;
+  className?: string;
+}) {
   return (
     <article className="group">
       <img src={image} alt={name} className="w-full object-cover" loading="lazy" />
       <h3 className={`mt-5 text-2xl font-semibold ${className}`}>{name}</h3>
       <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-        Industrial bones meet artisanal intervention. Exposed steel and brick serve as canvas for bespoke
-        millwork, Carrara surfaces, and a material palette that honors the building's manufacturing.
+        Industrial bones meet artisanal intervention. Exposed steel and brick serve as canvas for
+        bespoke millwork, Carrara surfaces, and a material palette that honors the building's
+        manufacturing.
       </p>
-      <Link to="/contact" className="mt-4 inline-block text-[11px] font-semibold tracking-[0.2em] text-navy hover:text-gold">
+      <Link
+        to="/contact"
+        className="mt-4 inline-block text-[11px] font-semibold tracking-[0.2em] text-navy hover:text-gold"
+      >
         INQUIRE LEAD TIME →
       </Link>
     </article>
