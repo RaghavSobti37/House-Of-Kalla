@@ -32,16 +32,17 @@ export function SiteNav({ transparent = false }: { transparent?: boolean }) {
   const paddingClass = isScrolled || !transparent ? "py-4" : "py-5";
 
   // Text color class for the nav links
-  const textColorClass = transparent && !isScrolled
-    ? "text-white/90 hover:text-white"
-    : "text-black hover:text-navy";
+  const textColorClass =
+    transparent && !isScrolled ? "text-white/90 hover:text-white" : "text-black hover:text-navy";
 
   // Logo color filter (white if transparent and not scrolled, else normal black)
   const logoFilter = transparent && !isScrolled ? "brightness-0 invert" : "";
 
   return (
     <header className={headerClass}>
-      <div className={`mx-auto flex max-w-[1400px] items-center justify-between px-6 ${paddingClass} md:px-10 transition-all duration-300`}>
+      <div
+        className={`mx-auto flex max-w-[1400px] items-center justify-between px-6 ${paddingClass} md:px-10 transition-all duration-300`}
+      >
         <Link to="/" className="flex items-center gap-2">
           <img
             src={logo}
@@ -71,4 +72,3 @@ export function SiteNav({ transparent = false }: { transparent?: boolean }) {
     </header>
   );
 }
-
