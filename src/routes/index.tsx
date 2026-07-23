@@ -68,25 +68,25 @@ function Index() {
       </div>
 
       <section className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
-        <p className="text-center text-[11px] font-semibold tracking-[0.28em] text-foreground/70">
+        <p className="text-center text-[15px] font-semibold tracking-[0.10em]">
           AS TRUSTED BY
         </p>
-        <div className="mt-10 grid grid-cols-2 items-center gap-8 justify-items-center sm:grid-cols-3 md:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 items-center justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-5 md:gap-12">
           {[
-            { name: "Taj", src: logoTaj },
-            { name: "Hexaware", src: logoHexaware },
-            { name: "Tata", src: logoTata },
-            { name: "Bank of Baroda", src: logoBob },
-            { name: "SBI", src: logoSbi },
+            { name: "Taj", src: logoTaj, heightClass: "h-20 md:h-25" },
+            { name: "Hexaware", src: logoHexaware, heightClass: "h-7 md:h-8" },
+            { name: "Tata", src: logoTata, heightClass: "h-6 md:h-7" },
+            { name: "Bank of Baroda", src: logoBob, heightClass: "h-8 md:h-10" },
+            { name: "SBI", src: logoSbi, heightClass: "h-7 md:h-8" },
           ].map((brand) => (
             <div
               key={brand.name}
-              className="flex items-center justify-center h-12 w-full max-w-[160px]"
+              className="flex items-center justify-center h-16 w-full max-w-[180px] p-2 transition-all duration-300 hover:scale-105"
             >
               <img
                 src={brand.src}
                 alt={brand.name}
-                className="h-full max-h-10 w-full object-contain"
+                className={`w-full object-contain transition-all duration-300 ${brand.heightClass}`}
               />
             </div>
           ))}
