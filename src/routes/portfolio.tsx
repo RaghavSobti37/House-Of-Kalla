@@ -69,9 +69,8 @@ function PortfolioPage() {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`text-[12px] font-semibold tracking-[0.24em] transition-colors ${
-                active === f ? "text-gold" : "text-foreground/60 hover:text-foreground"
-              }`}
+              className={`text-[12px] font-semibold tracking-[0.24em] transition-colors ${active === f ? "text-gold" : "text-foreground/60 hover:text-foreground"
+                }`}
             >
               {f}
             </button>
@@ -132,7 +131,7 @@ function PortfolioPage() {
             <img
               src={handsCraft}
               alt="Craftsman at work"
-              className="w-full aspect-[4/3] object-cover grayscale"
+              className="w-full aspect-[16/9] object-cover grayscale"
               loading="lazy"
             />
             <div className="absolute bottom-0 left-0 max-w-[250px] bg-white p-5 md:p-6 shadow-2xl z-10">
