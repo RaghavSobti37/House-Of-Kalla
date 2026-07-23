@@ -76,6 +76,7 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 text-[10px] tracking-[0.1em] text-white/40 md:px-10">
           <span>© HOUSE OF KALAA · ALL RIGHTS RESERVED</span>
+          <span className="text-red-400">THIS SITE IS UNDER CONSTRUCTION</span>
           <span>DESIGNED BY D'Mosh Global</span>
         </div>
       </div>
