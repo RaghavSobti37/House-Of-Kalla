@@ -28,6 +28,7 @@ const team = [
     bio: "35 years in interior design. The belief that an unorganised industry could be made accountable. Present in every significant project decision since the first day.",
     image: teamSanjay,
     reverse: false,
+    grayscale: true,
   },
   {
     name: "Sanjay Lunawat",
@@ -35,6 +36,7 @@ const team = [
     bio: "Trained at IKEA USA. Returned to build something more considered, more personal, and more honest than anything the industry was offering. Leads product, manufacturing, and the House of Kalaa vision.",
     image: teamDirector,
     reverse: true,
+    grayscale: true,
   },
   {
     name: "Kalpeet Lunawat",
@@ -42,6 +44,7 @@ const team = [
     bio: "He is the point where the client's vision and the factory's capability meet. His unmatched domain knowledge and the rare ability to take what a client describes in words and show them exactly what it looks like in three dimensions before a single piece of material is touched.",
     image: teamKalpeet,
     reverse: false,
+    grayscale: false,
   },
 ];
 
@@ -102,31 +105,44 @@ function AboutPage() {
         <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">The Heritage…</h2>
       </section>
 
-      <section className="mt-10 space-y-1">
-        {team.map((m, i) => (
-          <div key={i} className="bg-navy text-white">
-            <div
-              className={`mx-auto grid max-w-[1400px] items-center gap-8 px-6 py-14 md:grid-cols-2 md:px-10 ${m.reverse ? "md:[&>*:first-child]:order-2" : ""}`}
-            >
-              <div>
-                <h3 className="text-2xl font-semibold">{m.name}</h3>
-                <p className="mt-1 text-[11px] font-semibold tracking-[0.2em] text-white/70">
-                  {m.role}
-                </p>
-                <div className="mt-4 h-px w-24 bg-white/40" />
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80">{m.bio}</p>
-              </div>
-              <div className={m.reverse ? "md:justify-self-start" : "md:justify-self-end"}>
-                <img
-                  src={m.image}
-                  alt={m.name}
-                  className="aspect-[4/5] w-full max-w-[320px] object-cover grayscale"
-                  loading="lazy"
-                />
+      <section className="mt-10 space-y-0">
+        {team.map((m, i) => {
+          const isEven = i % 2 === 0;
+          const bgGradient = isEven
+            ? "bg-gradient-to-r from-black via-[#0a0c1b] to-[#252d5e]"
+            : "bg-gradient-to-r from-[#252d5e] via-[#0a0c1b] to-black";
+
+          return (
+            <div key={i} className={`${bgGradient} text-white`}>
+              <div
+                className={`mx-auto grid max-w-[1400px] items-center gap-12 px-6 py-20 md:grid-cols-2 md:px-10 ${
+                  m.reverse ? "md:[&>*:first-child]:order-2" : ""
+                }`}
+              >
+                <div>
+                  <h3 className="text-3xl font-semibold tracking-tight">{m.name}</h3>
+                  <p className="mt-2 text-[12px] font-semibold tracking-[0.22em] text-white/80 uppercase">
+                    {m.role}
+                  </p>
+                  <div className="mt-3 h-px w-[80%] bg-white/30" />
+                  <p className="mt-6 max-w-xl text-sm md:text-[15px] leading-relaxed text-white/80">
+                    {m.bio}
+                  </p>
+                </div>
+                <div className={m.reverse ? "md:justify-self-start" : "md:justify-self-end"}>
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    className={`aspect-[4/5] w-full max-w-[340px] object-cover ${
+                      m.grayscale ? "grayscale" : ""
+                    }`}
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </section>
 
       <section className="py-20 text-center">

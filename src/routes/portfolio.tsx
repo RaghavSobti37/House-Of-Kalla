@@ -111,10 +111,10 @@ function PortfolioPage() {
       </section>
 
       {/* Legacy band */}
-      <section className="bg-gold text-white">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-8 px-6 py-16 md:grid-cols-2 md:px-10">
+      <section className="bg-gold text-white pt-20 pb-28 md:py-24">
+        <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-6 md:grid-cols-2 md:px-10">
           <div>
-            <h2 className="text-3xl font-semibold md:text-5xl">
+            <h2 className="text-4xl font-bold leading-[1.15] tracking-tight md:text-5xl lg:text-6xl text-white">
               35 Years Of
               <br />
               Architectural
@@ -123,7 +123,7 @@ function PortfolioPage() {
             </h2>
             <Link
               to="/about"
-              className="mt-8 inline-block bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-ink/80"
+              className="mt-8 inline-block bg-black px-8 py-4 text-[12px] font-bold tracking-[0.16em] text-white hover:bg-black/90 transition-colors duration-200"
             >
               READ OUR STORY
             </Link>
@@ -132,11 +132,13 @@ function PortfolioPage() {
             <img
               src={handsCraft}
               alt="Craftsman at work"
-              className="w-full object-cover"
+              className="w-full object-cover grayscale"
               loading="lazy"
             />
-            <div className="absolute bottom-6 left-6 max-w-[220px] bg-white p-4 text-[11px] tracking-[0.16em] text-ink">
-              "WE DO NOT BUILD FURNITURE. WE CURATE DOMESTIC LANDSCAPES THROUGH ARCHIVAL FORMS."
+            <div className="absolute bottom-[-32px] left-6 max-w-[260px] bg-white p-6 shadow-xl z-10">
+              <p className="text-[11px] font-bold leading-relaxed tracking-[0.12em] text-black">
+                "WE DO NOT BUILD FURNITURE, WE CURATE DOMESTIC LANDSCAPES THROUGH ARCHIVAL FORMS"
+              </p>
             </div>
           </div>
         </div>

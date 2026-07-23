@@ -6,6 +6,11 @@ import heroKitchen from "@/assets/hero-kitchen.jpg";
 import projectBar from "@/assets/project-bar.jpg";
 import projectHotel from "@/assets/project-hotel.jpg";
 import productKorta from "@/assets/product-korta.jpg";
+import logoTaj from "@/assets/logo-taj.svg";
+import logoHexaware from "@/assets/logo-hexaware.svg";
+import logoTata from "@/assets/logo-tata.svg";
+import logoBob from "@/assets/logo-bob.svg";
+import logoSbi from "@/assets/logo-sbi.svg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -66,13 +71,23 @@ function Index() {
         <p className="text-center text-[11px] font-semibold tracking-[0.28em] text-foreground/70">
           AS TRUSTED BY
         </p>
-        <div className="mt-10 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
-          {["TAJ", "HEXAWARE", "TATA", "BANK OF BARODA", "SBI"].map((brand) => (
+        <div className="mt-10 grid grid-cols-2 items-center gap-8 justify-items-center sm:grid-cols-3 md:grid-cols-5">
+          {[
+            { name: "Taj", src: logoTaj },
+            { name: "Hexaware", src: logoHexaware },
+            { name: "Tata", src: logoTata },
+            { name: "Bank of Baroda", src: logoBob },
+            { name: "SBI", src: logoSbi },
+          ].map((brand) => (
             <div
-              key={brand}
-              className="text-center font-serif text-xl font-semibold tracking-wide text-foreground/60"
+              key={brand.name}
+              className="flex items-center justify-center h-12 w-full max-w-[160px]"
             >
-              {brand}
+              <img
+                src={brand.src}
+                alt={brand.name}
+                className="h-full max-h-10 w-full object-contain"
+              />
             </div>
           ))}
         </div>
