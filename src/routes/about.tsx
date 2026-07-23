@@ -59,7 +59,7 @@ function AboutPage() {
         <h1 className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">
           35 years of mastery.
         </h1>
-        <p className="mt-8 max-w-xl text-sm text-muted-foreground">
+        <p className="mt-6 max-w-xl text-l text-muted-foreground">
           Every project begins with a conversation. Every one ends with a space that is completely,
           specifically, unrepeatable.
         </p>
@@ -67,19 +67,19 @@ function AboutPage() {
         <img
           src={workshop}
           alt="House of Kalaa workshop"
-          className="mt-10 aspect-[16/9] w-full object-cover"
+          className="mt-14 aspect-[16/9] w-full object-cover"
           loading="lazy"
         />
 
         <div className="mt-10 max-w-none space-y-4 text-lg md:text-xl leading-relaxed text-foreground/80">
-          <p className="whitespace-nowrap">House of Kalaa is what we built for you.</p>
-          <p className="whitespace-nowrap">
+          <p className="lg:whitespace-nowrap">House of Kalaa is what we built for you.</p>
+          <p className="lg:whitespace-nowrap">
             A 4,000 sq ft space where the most articulate interior design solutions sit alongside pieces made in our own factory.
           </p>
-          <p className="whitespace-nowrap">
+          <p className="lg:whitespace-nowrap">
             Where you can see, and experience what considered living actually looks like.
           </p>
-          <p className="whitespace-nowrap font-semibold text-foreground">
+          <p className="lg:whitespace-nowrap font-semibold text-foreground">
             We believe that a brand with nothing to hide should hide nothing.
           </p>
         </div>
@@ -87,8 +87,8 @@ function AboutPage() {
         <hr className="my-14 border-foreground/20" />
 
         <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">WHAT WE BELIEVE</p>
-        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl whitespace-nowrap">
-          We do not design rooms. We compose atmospheres where material <br /> and meaning converge.
+        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
+          We do not design rooms. We compose atmospheres where material <br className="hidden lg:inline" /> and meaning converge.
         </h2>
         <p className="mt-4 text-[17px] font-light tracking-[0.01em] text-foreground/80">
           WE BELIEVE IN SHOWCASING OUR WORK,<br /> <span className="italic font-semibold text-navy">LITERALLY.</span>
@@ -127,7 +127,7 @@ function AboutPage() {
                     </p>
                     <div className="mt-2.5 mb-5 h-px w-full bg-white/30" />
                   </div>
-                  <p className="max-w-xl text-xs md:text-sm leading-relaxed text-white/80">
+                  <p className="max-w-xl text-l md:text-l leading-relaxed text-white/80">
                     {m.bio}
                   </p>
                 </div>
@@ -150,7 +150,7 @@ function AboutPage() {
         <p className="text-[18px] font-semibold tracking-[0.01em] text-gold">
           EXPERIENCE THE LEGACY
         </p>
-        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl whitespace-nowrap">
+        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
           From our workshop, to your home.
         </h2>
       </section>

@@ -30,7 +30,7 @@ const filters = ["VIEW ALL", "SEATING", "TABLES", "STORAGE", "DESIGN YOUR OWN"] 
 const products = [
   { name: "Granite Kitchen Top", image: productKorta, className: "text-gold" },
   { name: "Lounge Chair", image: productLoungeChair, className: "text-gold" },
-  { name: "Atelier Sofa", image: productSofa, className: "text-ink", wide: true },
+  { name: "Atelier Sofa", image: productSofa, className: "text-gold", wide: true },
   { name: "Lounge Chair", image: productDining, className: "text-gold" },
   { name: "Granite Kitchen Top", image: productLeather, className: "text-gold" },
 ];
@@ -70,8 +70,7 @@ function ProductsPage() {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`mt-4 text-[17px] font-semibold tracking-[0.10em] transition-colors ${active === f ? "text-gold" : "text-foreground/60 hover:text-foreground"
-                }`}
+              className={`mt-4 text-[12px] font-semibold tracking-[0.10em] transition-colors ${active === f ? "text-gold" : "text-foreground/60 hover:text-foreground"}`}
             >
               {f}
             </button>
@@ -100,23 +99,25 @@ function ProductCard({
   name,
   image,
   className = "",
+  wide = false,
 }: {
   name: string;
   image: string;
   className?: string;
+  wide?: boolean;
 }) {
   return (
     <article className="group">
       <img src={image} alt={name} className="w-full object-cover mt-8" loading="lazy" />
       <h3 className={`mt-5 text-4xl font-bold ${className}`}>{name}</h3>
-      <p className="mt-2 max-w-xl text-xl text-foreground/80">
+      <p className={`mt-2 text-xl text-foreground/80 ${wide ? "max-w-5xl" : "max-w-xl"}`}>
         Industrial bones meet artisanal intervention. Exposed steel and brick serve as canvas for
         bespoke millwork, Carrara surfaces, and a material palette that honors the building's
         manufacturing.
       </p>
       <Link
         to="/contact"
-        className="mt-8 inline-block text-[17px] font-semibold tracking-[0.1em] text-navy hover:text-gold underline underline-offset-8"
+        className="mt-8 inline-block text-[17px] font-semibold tracking-[0.1em] text-black hover:text-black underline underline-offset-8"
       >
         INQUIRE LEAD TIME
       </Link>

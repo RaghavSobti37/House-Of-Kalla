@@ -50,8 +50,8 @@ function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
-        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">INQUIRY</p>
-        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl whitespace-nowrap">
+        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">INQUIRE</p>
+        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
           Begin your journey.
         </h2>
         <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
@@ -111,7 +111,7 @@ function ContactPage() {
               />
             </div>
             <button className="bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90">
-              SEND INQUIRY
+              SEND INQUIRE
             </button>
           </form>
         </div>
@@ -144,7 +144,9 @@ function ContactPage() {
               </div>
             </div>
             <a
-              href="#map"
+              href="https://www.google.com/maps/place/NICE,+NICE+Area,+MIDC,+Satpur+Colony,+Nashik,+Maharashtra+422005,+India/@19.996777,73.7442993,17z/data=!3m1!4b1!4m10!1m2!2m1!1sNICE,+NICE+Area,+MIDC,+Satpur+Colony,+Nashik,+Maharashtra+422005!3m6!1s0x3bddec800f26e747:0x7e86cf739d18b13d!8m2!3d19.996772!4d73.7468796"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-block text-[11px] font-semibold tracking-[0.2em] text-navy hover:text-gold"
             >
               VIEW ON MAP
@@ -153,7 +155,7 @@ function ContactPage() {
           <img
             src={showroom}
             alt="House of Kalaa showroom"
-            className="aspect-[4/5] w-full max-w-[440px] justify-self-end object-cover"
+            className="hidden md:block aspect-[4/5] w-full max-w-[440px] justify-self-end object-cover"
           />
         </div>
       </section>
@@ -162,7 +164,7 @@ function ContactPage() {
         <iframe
           title="House of Kalaa location"
           className="h-full w-full border-0"
-          src="https://www.google.com/maps?q=MIDC%20Satpur%20Nashik&output=embed"
+          src="https://www.google.com/maps?q=19.996772,73.7468796(NICE,+NICE+Area,+MIDC,+Satpur+Colony,+Nashik)&hl=en&z=17&output=embed"
           loading="lazy"
         />
       </section>

@@ -82,7 +82,7 @@ Describe the key core technologies and tools utilized in this project:
 - **Luxury Aesthetics:** Highly-tailored color palette of Navy (`oklch(0.26 0.14 275)`), Gold (`oklch(0.62 0.11 75)`), and Cream (`oklch(0.99 0.005 90)`) providing a premium high-end feel.
 - **File-Based Routing:** Modern React file-based routing via `@tanstack/react-router` and `@tanstack/react-start`.
 - **Responsive Navigation & Shell:** Dynamic transparent header transition on scroll (`site-nav.tsx`) and robust responsive footer (`site-footer.tsx`).
-- **Interactive Components:** Product catalog with interactive tabs, project gallery filter categories, inquiry form validation, and interactive shadcn/ui elements.
+- **Interactive Components:** Product catalog with interactive tabs, project gallery filter categories, INQUIRE form validation, and interactive shadcn/ui elements.
 
 ---
 

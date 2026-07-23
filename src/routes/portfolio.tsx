@@ -57,7 +57,7 @@ function PortfolioPage() {
         <h1 className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">
           This work brought us here.
         </h1>
-        <p className="mt-8 max-w-xl text-sm text-muted-foreground">
+        <p className="mt-6 max-w-xl text-l text-muted-foreground">
           Every project begins with a conversation. Every one ends with a space that is completely,
           specifically, unrepeatable.
         </p>
@@ -79,7 +79,7 @@ function PortfolioPage() {
 
         <div className="mt-14 space-y-16">
           {projects.map((p, i) => (
-            <article key={i} className="grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
+            <article key={i} className="grid gap-3 md:gap-8 md:grid-cols-[1.1fr_1fr] md:items-end">
               <img
                 src={p.image}
                 alt={typeof p.title === "string" ? p.title : "Project"}
@@ -89,7 +89,7 @@ function PortfolioPage() {
               <div className="flex flex-col justify-end">
                 <h3 className={`font-inter text-4xl italic md:text-5xl whitespace-pre-line ${p.color}`}>{p.title}</h3>
                 <p className="mt-2 text-sm md:text-xl text-foreground/80">{p.location}</p>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-md text-l leading-relaxed text-muted-foreground">
                   Industrial bones meet artisanal intervention. Exposed steel and brick serve as
                   canvas for bespoke millwork, Carrara surfaces, and a material palette that honors
                   the building's manufacturing heritage.
@@ -134,7 +134,7 @@ function PortfolioPage() {
               className="w-full aspect-[16/9] object-cover grayscale"
               loading="lazy"
             />
-            <div className="absolute bottom-0 left-0 max-w-[250px] bg-white p-5 md:p-6 shadow-2xl z-10">
+            <div className="absolute bottom-0 left-0 max-w-[200px] sm:max-w-[250px] bg-white p-4 sm:p-5 md:p-6 shadow-2xl z-10">
               <p className="text-[10px] md:text-[11px] font-medium leading-normal tracking-[0.08em] text-[#1a1a1a]">
                 "WE DO NOT BUILD FURNITURE, WE CURATE DOMESTIC LANDSCAPES THROUGH ARCHIVAL FORMS"
               </p>
