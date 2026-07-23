@@ -51,12 +51,12 @@ function ProductsPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
         <div className="absolute inset-0">
           <div className="mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 md:px-10">
-            <h1 className="max-w-2xl text-3xl font-light leading-tight tracking-tight text-white md:text-5xl">
+            <h1 className="max-w-2xl text-3xl font-light leading-tight tracking-tight text-white md:text-5xl ">
               EVERY PIECE HERE,
               <br />
-              <span className="font-medium italic">HAS BEEN CHOSEN.</span>
+              <span className="font-extrabold italic">HAS BEEN CHOSEN.</span>
             </h1>
-            <p className="mt-4 max-w-lg text-sm text-white/85">
+            <p className="mt-0.5 max-w-xl text-l text-white/85">
               A curated collection contemporary masterworks. Every object is a dialogue between raw
               material and human precision.
             </p>
@@ -70,9 +70,8 @@ function ProductsPage() {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`text-[12px] font-semibold tracking-[0.24em] transition-colors ${
-                active === f ? "text-gold" : "text-foreground/60 hover:text-foreground"
-              }`}
+              className={`mt-4 text-[17px] font-semibold tracking-[0.10em] transition-colors ${active === f ? "text-gold" : "text-foreground/60 hover:text-foreground"
+                }`}
             >
               {f}
             </button>
@@ -108,18 +107,18 @@ function ProductCard({
 }) {
   return (
     <article className="group">
-      <img src={image} alt={name} className="w-full object-cover" loading="lazy" />
-      <h3 className={`mt-5 text-2xl font-semibold ${className}`}>{name}</h3>
-      <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+      <img src={image} alt={name} className="w-full object-cover mt-8" loading="lazy" />
+      <h3 className={`mt-5 text-4xl font-bold ${className}`}>{name}</h3>
+      <p className="mt-2 max-w-xl text-xl text-foreground/80">
         Industrial bones meet artisanal intervention. Exposed steel and brick serve as canvas for
         bespoke millwork, Carrara surfaces, and a material palette that honors the building's
         manufacturing.
       </p>
       <Link
         to="/contact"
-        className="mt-4 inline-block text-[11px] font-semibold tracking-[0.2em] text-navy hover:text-gold"
+        className="mt-8 inline-block text-[17px] font-semibold tracking-[0.1em] text-navy hover:text-gold underline underline-offset-8"
       >
-        INQUIRE LEAD TIME →
+        INQUIRE LEAD TIME
       </Link>
     </article>
   );

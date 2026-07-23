@@ -67,11 +67,11 @@ function ContactPage() {
             <p className="mt-2 text-sm text-muted-foreground">
               A dedicated session to discuss your project requirements.
             </p>
-            <p className="mt-8 text-[11px] font-semibold tracking-[0.2em] text-gold">PHONE</p>
+            <p className="mt-8 text-[11px] font-semibold tracking-[0.16em] text-gold">PHONE</p>
             <a href="tel:+917774048818" className="mt-1 block text-sm text-navy hover:underline">
               +91 7774048818
             </a>
-            <p className="mt-6 text-[11px] font-semibold tracking-[0.2em] text-gold">EMAIL US</p>
+            <p className="mt-6 text-[11px] font-semibold tracking-[0.16em] text-gold">EMAIL US</p>
             <a
               href="mailto:kalpeet@houseofkalaa.studio"
               className="mt-1 block text-sm text-navy hover:underline"
@@ -87,11 +87,10 @@ function ContactPage() {
                   key={t}
                   type="button"
                   onClick={() => setType(t)}
-                  className={`px-5 py-3 text-[11px] font-semibold tracking-[0.16em] transition-colors ${
-                    type === t
-                      ? "bg-navy text-white"
-                      : "border border-navy text-navy hover:bg-navy/5"
-                  }`}
+                  className={`px-5 py-3 text-[11px] font-semibold tracking-[0.16em] transition-colors ${type === t
+                    ? "bg-navy text-white"
+                    : "border border-navy text-navy hover:bg-navy/5"
+                    }`}
                 >
                   {t}
                 </button>
@@ -118,7 +117,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-muted">
+      <section className="bg-navy/[0.06]">
         <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-6 py-16 md:grid-cols-2 md:px-10">
           <div>
             <h3 className="text-2xl font-semibold md:text-3xl">Visit the Studio</h3>
@@ -148,7 +147,7 @@ function ContactPage() {
               href="#map"
               className="mt-8 inline-block text-[11px] font-semibold tracking-[0.2em] text-navy hover:text-gold"
             >
-              VIEW ON MAP →
+              VIEW ON MAP
             </a>
           </div>
           <img

@@ -31,7 +31,7 @@ const team = [
     grayscale: true,
   },
   {
-    name: "Sanjay Lunawat",
+    name: "Samkeet Lunawat",
     role: "DIRECTOR, KNCHAN ASSOCIATES",
     bio: "Trained at IKEA USA. Returned to build something more considered, more personal, and more honest than anything the industry was offering. Leads product, manufacturing, and the House of Kalaa vision.",
     image: teamDirector,
@@ -53,13 +53,13 @@ function AboutPage() {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <section className="mx-auto max-w-[1400px] px-6 pt-16 md:px-10">
-        <p className="text-[11px] font-semibold tracking-[0.24em] text-navy">
+        <p className="text-[30px] font-semibold tracking-[0.01em] text-navy">
           INDUSTRY LEADERS FOR A REASON!
         </p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">
           35 years of mastery.
         </h1>
-        <p className="mt-4 max-w-xl text-sm text-muted-foreground">
+        <p className="mt-8 max-w-xl text-sm text-muted-foreground">
           Every project begins with a conversation. Every one ends with a space that is completely,
           specifically, unrepeatable.
         </p>
@@ -71,14 +71,15 @@ function AboutPage() {
           loading="lazy"
         />
 
-        <div className="mt-10 max-w-2xl space-y-4 text-sm leading-relaxed text-foreground/80">
-          <p>House of Kalaa is what we built for you.</p>
-          <p>
-            A 4,000 sq ft space where the most articulate interior design solutions sit alongside
-            pieces made in our own factory. Where you can see, and experience what considered living
-            actually looks like.
+        <div className="mt-10 max-w-none space-y-4 text-lg md:text-xl leading-relaxed text-foreground/80">
+          <p className="whitespace-nowrap">House of Kalaa is what we built for you.</p>
+          <p className="whitespace-nowrap">
+            A 4,000 sq ft space where the most articulate interior design solutions sit alongside pieces made in our own factory.
           </p>
-          <p className="font-semibold text-foreground">
+          <p className="whitespace-nowrap">
+            Where you can see, and experience what considered living actually looks like.
+          </p>
+          <p className="whitespace-nowrap font-semibold text-foreground">
             We believe that a brand with nothing to hide should hide nothing.
           </p>
         </div>
@@ -87,10 +88,10 @@ function AboutPage() {
 
         <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">WHAT WE BELIEVE</p>
         <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl whitespace-nowrap">
-          We do not design rooms. We compose atmospheres where material and meaning converge.
+          We do not design rooms. We compose atmospheres where material <br /> and meaning converge.
         </h2>
-        <p className="mt-4 text-[11px] font-semibold tracking-[0.24em] text-foreground/80">
-          WE BELIEVE IN SHOWCASING OUR WORK. <span className="italic text-gold">LITERALLY.</span>
+        <p className="mt-4 text-[17px] font-light tracking-[0.01em] text-foreground/80">
+          WE BELIEVE IN SHOWCASING OUR WORK,<br /> <span className="italic font-semibold text-navy">LITERALLY.</span>
         </p>
         <Link
           to="/contact"
@@ -101,8 +102,8 @@ function AboutPage() {
 
         <hr className="my-14 border-foreground/20" />
 
-        <p className="text-[11px] font-semibold tracking-[0.24em] text-navy">THE HANDS BEHIND</p>
-        <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">The Heritage…</h2>
+        <p className="text-[30px] font-semibold tracking-[0.01em] text-navy">THE HANDS BEHIND</p>
+        <h2 className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">The Heritage…</h2>
       </section>
 
       <section className="mt-10 space-y-0">
@@ -115,16 +116,17 @@ function AboutPage() {
           return (
             <div key={i} className={`${bgGradient} text-white`}>
               <div
-                className={`mx-auto grid max-w-[1280px] items-center gap-8 px-8 py-10 md:grid-cols-2 md:px-16 md:py-12 ${
-                  m.reverse ? "md:[&>*:first-child]:order-2" : ""
-                }`}
+                className={`mx-auto grid max-w-[1180px] items-center gap-6 px-6 py-10 md:grid-cols-2 md:px-12 md:py-12 ${m.reverse ? "md:[&>*:first-child]:order-2" : ""
+                  }`}
               >
                 <div>
                   <h3 className="text-2xl font-bold tracking-tight md:text-3xl text-white">{m.name}</h3>
-                  <p className="mt-1.5 text-[11px] font-medium tracking-[0.18em] text-white/70 uppercase">
-                    {m.role}
-                  </p>
-                  <div className="mt-2.5 mb-5 h-px w-[65%] bg-white/30" />
+                  <div className="w-fit">
+                    <p className="mt-1.5 text-[18px] font-medium tracking-[0.01em] text-white/70 uppercase">
+                      {m.role}
+                    </p>
+                    <div className="mt-2.5 mb-5 h-px w-full bg-white/30" />
+                  </div>
                   <p className="max-w-xl text-xs md:text-sm leading-relaxed text-white/80">
                     {m.bio}
                   </p>
@@ -133,9 +135,8 @@ function AboutPage() {
                   <img
                     src={m.image}
                     alt={m.name}
-                    className={`aspect-[3/4] w-[260px] md:w-[280px] object-cover ${
-                      m.grayscale ? "grayscale" : ""
-                    }`}
+                    className={`aspect-[3/4] w-[260px] md:w-[280px] object-cover ${m.grayscale ? "grayscale" : ""
+                      }`}
                     loading="lazy"
                   />
                 </div>
@@ -146,7 +147,7 @@ function AboutPage() {
       </section>
 
       <section className="py-20 text-center">
-        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">
+        <p className="text-[18px] font-semibold tracking-[0.01em] text-gold">
           EXPERIENCE THE LEGACY
         </p>
         <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl whitespace-nowrap">

@@ -1,6 +1,7 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -75,7 +76,7 @@
   --card-foreground: oklch(0.15 0.02 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.02 260);
-  --primary: oklch(0.26 0.14 275);
+  --primary: #2e2f6e;
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.96 0.008 90);
   --secondary-foreground: oklch(0.15 0.02 260);
@@ -87,9 +88,9 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.9 0.01 90);
   --input: oklch(0.9 0.01 90);
-  --ring: oklch(0.26 0.14 275);
-  --navy: oklch(0.26 0.14 275);
-  --gold: oklch(0.62 0.11 75);
+  --ring: #2e2f6e;
+  --navy: #2e2f6e;
+  --gold: #7a5c1e;
   --ink: oklch(0.12 0 0);
   --cream: oklch(0.99 0.005 90);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -159,6 +160,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }

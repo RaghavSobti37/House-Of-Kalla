@@ -213,14 +213,20 @@ function Index() {
                 className="border border-white/15 rounded-[20px] p-8 md:p-10 flex flex-col justify-between"
               >
                 <div>
-                  <span className="block font-serif text-gold text-[180px] leading-[0.3] mb-8 select-none opacity-40">
+                  <span className="block font-serif text-gold text-[180px] leading-[0.3] mb-8 select-none opacity-40 translate-y-10">
                     “
                   </span>
-                  <p className="font-serif font-thin italic text-2xl leading-[1.35] text-white/90 md:text-[32px]">
+                  <p
+                    className="text-left mt-6 font-sans italic text-white/70 text-3xl md:text-[30px] leading-[1.3] tracking-[0.001em]"
+                    style={{ fontWeight: 100 }}
+                  >
                     {t.text}
                   </p>
                 </div>
-                <div className="text-right mt-10 font-serif italic text-white/60 text-lg md:text-xl">
+                <div
+                  className="text-right mt-10 font-sans italic text-white/60 text-lg md:text-xl tracking-wide"
+                  style={{ fontWeight: 100 }}
+                >
                   - {t.author}
                 </div>
               </blockquote>
@@ -230,8 +236,8 @@ function Index() {
       </section>
 
       <section className="py-16 text-center">
-        <p className="text-[11px] tracking-[0.28em] text-gold">
-          THE SAME STANDARD, <span className="italic text-foreground">EVERYTIME.</span>
+        <p className="text-[28px] tracking-[0.02em] text-gold">
+          THE SAME STANDARD, <span className="font-bold italic">EVERYTIME.</span>
         </p>
       </section>
 
