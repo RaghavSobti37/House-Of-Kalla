@@ -189,7 +189,7 @@ function Index() {
           <p className="text-[15px] font-semibold tracking-[0.10em] text-gold leading-none">
             WHAT OUR CLIENTS SAY
           </p>
-          <span className="font-serif text-gold text-8xl leading-none select-none opacity-40 translate-y-2 inline-block">
+          <span className="font-serif text-gold text-8xl leading-none select-none opacity-40 translate-y-13 inline-block">
             ”
           </span>
         </div>
@@ -216,7 +216,7 @@ function Index() {
                   <span className="block font-serif text-gold text-[180px] leading-[0.3] mb-8 select-none opacity-40">
                     “
                   </span>
-                  <p className="font-serif text-2xl italic leading-[1.35] text-white/80 md:text-[32px]">
+                  <p className="font-serif font-thin italic text-2xl leading-[1.35] text-white/90 md:text-[32px]">
                     {t.text}
                   </p>
                 </div>
