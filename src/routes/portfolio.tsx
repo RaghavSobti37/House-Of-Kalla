@@ -111,10 +111,10 @@ function PortfolioPage() {
       </section>
 
       {/* Legacy band */}
-      <section className="bg-gold text-white pt-20 pb-28 md:py-24">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-6 md:grid-cols-2 md:px-10">
+      <section className="bg-[#78581f] text-white py-16 md:py-20 overflow-hidden">
+        <div className="mx-auto grid max-w-[1300px] items-center gap-10 px-8 md:grid-cols-2 md:px-16">
           <div>
-            <h2 className="text-4xl font-bold leading-[1.15] tracking-tight md:text-5xl lg:text-6xl text-white">
+            <h2 className="text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl text-white">
               35 Years Of
               <br />
               Architectural
@@ -123,20 +123,20 @@ function PortfolioPage() {
             </h2>
             <Link
               to="/about"
-              className="mt-8 inline-block bg-black px-8 py-4 text-[12px] font-bold tracking-[0.16em] text-white hover:bg-black/90 transition-colors duration-200"
+              className="mt-8 inline-block bg-black px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-white hover:bg-black/90 transition-colors"
             >
               READ OUR STORY
             </Link>
           </div>
-          <div className="relative">
+          <div className="relative pl-6 pb-6">
             <img
               src={handsCraft}
               alt="Craftsman at work"
-              className="w-full object-cover grayscale"
+              className="w-full aspect-[4/3] object-cover grayscale"
               loading="lazy"
             />
-            <div className="absolute bottom-[-32px] left-6 max-w-[260px] bg-white p-6 shadow-xl z-10">
-              <p className="text-[11px] font-bold leading-relaxed tracking-[0.12em] text-black">
+            <div className="absolute bottom-0 left-0 max-w-[250px] bg-white p-5 md:p-6 shadow-2xl z-10">
+              <p className="text-[10px] md:text-[11px] font-medium leading-normal tracking-[0.08em] text-[#1a1a1a]">
                 "WE DO NOT BUILD FURNITURE, WE CURATE DOMESTIC LANDSCAPES THROUGH ARCHIVAL FORMS"
               </p>
             </div>

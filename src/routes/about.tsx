@@ -109,23 +109,23 @@ function AboutPage() {
         {team.map((m, i) => {
           const isEven = i % 2 === 0;
           const bgGradient = isEven
-            ? "bg-gradient-to-r from-black via-[#0a0c1b] to-[#252d5e]"
-            : "bg-gradient-to-r from-[#252d5e] via-[#0a0c1b] to-black";
+            ? "bg-gradient-to-r from-black via-[#0e122b] to-[#2b3678]"
+            : "bg-gradient-to-r from-[#2b3678] via-[#0e122b] to-black";
 
           return (
             <div key={i} className={`${bgGradient} text-white`}>
               <div
-                className={`mx-auto grid max-w-[1400px] items-center gap-12 px-6 py-20 md:grid-cols-2 md:px-10 ${
+                className={`mx-auto grid max-w-[1280px] items-center gap-8 px-8 py-10 md:grid-cols-2 md:px-16 md:py-12 ${
                   m.reverse ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
                 <div>
-                  <h3 className="text-3xl font-semibold tracking-tight">{m.name}</h3>
-                  <p className="mt-2 text-[12px] font-semibold tracking-[0.22em] text-white/80 uppercase">
+                  <h3 className="text-2xl font-bold tracking-tight md:text-3xl text-white">{m.name}</h3>
+                  <p className="mt-1.5 text-[11px] font-medium tracking-[0.18em] text-white/70 uppercase">
                     {m.role}
                   </p>
-                  <div className="mt-3 h-px w-[80%] bg-white/30" />
-                  <p className="mt-6 max-w-xl text-sm md:text-[15px] leading-relaxed text-white/80">
+                  <div className="mt-2.5 mb-5 h-px w-[65%] bg-white/30" />
+                  <p className="max-w-xl text-xs md:text-sm leading-relaxed text-white/80">
                     {m.bio}
                   </p>
                 </div>
@@ -133,7 +133,7 @@ function AboutPage() {
                   <img
                     src={m.image}
                     alt={m.name}
-                    className={`aspect-[4/5] w-full max-w-[340px] object-cover ${
+                    className={`aspect-[3/4] w-[260px] md:w-[280px] object-cover ${
                       m.grayscale ? "grayscale" : ""
                     }`}
                     loading="lazy"
