@@ -73,11 +73,11 @@ function Index() {
         </p>
         <div className="mt-12 grid grid-cols-2 items-center justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-5 md:gap-12">
           {[
-            { name: "Taj", src: logoTaj, heightClass: "h-20 md:h-25" },
-            { name: "Hexaware", src: logoHexaware, heightClass: "h-7 md:h-8" },
-            { name: "Tata", src: logoTata, heightClass: "h-6 md:h-7" },
-            { name: "Bank of Baroda", src: logoBob, heightClass: "h-8 md:h-10" },
-            { name: "SBI", src: logoSbi, heightClass: "h-7 md:h-8" },
+            { name: "Taj", src: logoTaj, heightClass: "h-16 md:h-20" },
+            { name: "Hexaware", src: logoHexaware, heightClass: "h-24 md:h-35" },
+            { name: "Tata", src: logoTata, heightClass: "h-16 md:h-20" },
+            { name: "Bank of Baroda", src: logoBob, heightClass: "h-24 md:h-30" },
+            { name: "SBI", src: logoSbi, heightClass: "h-16 md:h-20" },
           ].map((brand) => (
             <div
               key={brand.name}
@@ -185,11 +185,11 @@ function Index() {
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 pt-20 pb-8 md:px-10">
-        <div className="flex items-end gap-3">
+        <div className="flex items-end gap-1">
           <p className="text-[15px] font-semibold tracking-[0.10em] text-gold leading-none">
             WHAT OUR CLIENTS SAY
           </p>
-          <span className="font-serif text-gold text-8xl leading-[0.3] select-none opacity-40">
+          <span className="font-serif text-gold text-8xl leading-none select-none opacity-40 translate-y-2 inline-block">
             ”
           </span>
         </div>
