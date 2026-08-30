@@ -48,6 +48,24 @@ const team = [
   },
 ];
 
+const history = [
+  {
+    year: "1991",
+    title: "Knchan Associates is established",
+    text: "A turnkey interior practice built on rigorous craft, an uncompromising eye for detail, and trust earned across every commission.",
+  },
+  {
+    year: "2017",
+    title: "Knchan Furniture Studio takes form",
+    text: "The conviction that exceptional interiors demand furniture of equal distinction: bespoke, considered, and built to endure.",
+  },
+  {
+    year: "Today",
+    title: "House of Kalaa - Luxury Interiors",
+    text: "Three decades of craft, distilled into one destination. Where a home is not decorated, it is composed.",
+  },
+];
+
 function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
@@ -99,6 +117,37 @@ function AboutPage() {
         >
           BOOK A FACTORY VISIT
         </Link>
+
+        <hr className="my-14 border-foreground/20" />
+
+        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">OUR HISTORY</p>
+        <div className="mt-8 grid gap-8 md:grid-cols-[0.9fr_1.4fr] md:items-start">
+          <div>
+            <h2 className="text-4xl font-semibold tracking-tight text-navy md:text-5xl">
+              Three decades, distilled.
+            </h2>
+            <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">
+              A legacy of interiors, furniture, and exacting execution brought into one composed
+              destination.
+            </p>
+          </div>
+          <div className="border-l border-gold/40 pl-6 md:pl-8">
+            {history.map((item) => (
+              <div key={item.year} className="relative pb-10 last:pb-0">
+                <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-gold md:-left-[37px]" />
+                <p className="text-[13px] font-semibold tracking-[0.18em] text-gold">
+                  {item.year}
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <hr className="my-14 border-foreground/20" />
 

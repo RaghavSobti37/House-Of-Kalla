@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import productsHero from "@/assets/products-hero.jpg";
@@ -25,18 +24,15 @@ export const Route = createFileRoute("/products")({
   component: ProductsPage,
 });
 
-const filters = ["VIEW ALL", "SEATING", "TABLES", "STORAGE", "DESIGN YOUR OWN"] as const;
-
 const products = [
-  { name: "Granite Kitchen Top", image: productKorta, className: "text-gold" },
-  { name: "Lounge Chair", image: productLoungeChair, className: "text-gold" },
-  { name: "Atelier Sofa", image: productSofa, className: "text-gold", wide: true },
-  { name: "Lounge Chair", image: productDining, className: "text-gold" },
-  { name: "Granite Kitchen Top", image: productLeather, className: "text-gold" },
+  { name: "Korta Center Table", image: productKorta },
+  { name: "Lounge Chair", image: productLoungeChair },
+  { name: "Atelier Sofa", image: productSofa },
+  { name: "Dining Ensemble", image: productDining },
+  { name: "Leather Accent Chair", image: productLeather },
 ];
 
 function ProductsPage() {
-  const [active, setActive] = useState<(typeof filters)[number]>("VIEW ALL");
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -65,27 +61,18 @@ function ProductsPage() {
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 py-12 md:px-10">
-        <div className="flex flex-wrap items-center justify-center gap-8">
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={`mt-4 text-[12px] font-semibold tracking-[0.10em] transition-colors ${active === f ? "text-gold" : "text-foreground/60 hover:text-foreground"}`}
-            >
-              {f}
-            </button>
-          ))}
+        <div className="flex justify-end">
+          <Link
+            to="/contact"
+            className="bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90"
+          >
+            INQUIRE LEAD TIME
+          </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
-          {products.slice(0, 2).map((p, i) => (
-            <ProductCard key={i} {...p} />
-          ))}
-          <div className="md:col-span-2">
-            <ProductCard {...products[2]} />
-          </div>
-          {products.slice(3).map((p, i) => (
-            <ProductCard key={`b-${i}`} {...p} />
+        <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
+          {products.map((product) => (
+            <ProductCard key={product.name} {...product} />
           ))}
         </div>
       </section>
@@ -98,29 +85,23 @@ function ProductsPage() {
 function ProductCard({
   name,
   image,
-  className = "",
-  wide = false,
 }: {
   name: string;
   image: string;
-  className?: string;
-  wide?: boolean;
 }) {
   return (
     <article className="group">
-      <img src={image} alt={name} className="w-full object-cover mt-8" loading="lazy" />
-      <h3 className={`mt-5 text-4xl font-bold ${className}`}>{name}</h3>
-      <p className={`mt-2 text-xl text-foreground/80 ${wide ? "max-w-5xl" : "max-w-xl"}`}>
-        Industrial bones meet artisanal intervention. Exposed steel and brick serve as canvas for
-        bespoke millwork, Carrara surfaces, and a material palette that honors the building's
-        manufacturing.
+      <img
+        src={image}
+        alt={name}
+        className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:opacity-90"
+        loading="lazy"
+      />
+      <h3 className="mt-5 text-3xl font-semibold tracking-tight text-gold md:text-4xl">{name}</h3>
+      <p className="mt-2 max-w-xl text-lg leading-relaxed text-foreground/75">
+        A considered piece for composed interiors, selected for material presence, proportion, and
+        long-term craft value.
       </p>
-      <Link
-        to="/contact"
-        className="mt-8 inline-block text-[17px] font-semibold tracking-[0.1em] text-black hover:text-black underline underline-offset-8"
-      >
-        INQUIRE LEAD TIME
-      </Link>
     </article>
   );
 }

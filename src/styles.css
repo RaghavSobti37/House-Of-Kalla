@@ -1,6 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 @source "../src";
 
 @custom-variant dark (&:is(.dark *));
@@ -164,4 +164,35 @@
   to {
     transform: translateX(-50%);
   }
+}
+
+@keyframes marqueeReverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes projectDissolve {
+  0%,
+  28% {
+    opacity: 1;
+  }
+
+  34%,
+  94% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.project-fade img {
+  animation: projectDissolve 12s infinite;
+  opacity: 0;
 }

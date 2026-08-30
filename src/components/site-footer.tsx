@@ -45,6 +45,11 @@ export function SiteFooter() {
                   Inquire
                 </Link>
               </li>
+              <li>
+                <Link to="/privacy-policy" className="hover:text-white">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="text-left sm:text-right flex flex-col items-start sm:items-end">

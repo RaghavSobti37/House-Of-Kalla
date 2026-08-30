@@ -3,20 +3,56 @@ import { Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import heroKitchen from "@/assets/hero-kitchen.jpg";
-import projectBar from "@/assets/project-bar.jpg";
-import projectHotel from "@/assets/project-hotel.jpg";
 import productKorta from "@/assets/product-korta.jpg";
-import logoTaj from "@/assets/logo-taj.svg";
-import logoHexaware from "@/assets/logo-hexaware.svg";
-import logoTata from "@/assets/logo-tata.svg";
-import logoBob from "@/assets/logo-bob.svg";
-import logoSbi from "@/assets/logo-sbi.svg";
+import { portfolioProjects } from "@/lib/portfolio-data";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 function Index() {
+  const featuredProjects = [
+    portfolioProjects.find((project) => project.slug === "taj-pune"),
+    portfolioProjects.find((project) => project.slug === "bafna-jewellers"),
+  ].filter(Boolean);
+
+  const clientLogos = [
+    ["Taj Hotels", "tajhotels.com"],
+    ["Capgemini", "capgemini.com"],
+    ["Infosys", "infosys.com"],
+    ["Tech Mahindra", "techmahindra.com"],
+    ["Siemens", "siemens.com"],
+    ["SPJIMR", "spjimr.org"],
+    ["HP Gas", "hindustanpetroleum.com"],
+    ["State Bank of India", "sbi.co.in"],
+    ["NDCC", "ndccbank.com"],
+    ["Bank of Baroda", "bankofbaroda.in"],
+    ["HDFC Bank", "hdfcbank.com"],
+    ["PIMCO", "pimco.com"],
+    ["Paranjpe Brothers", "paranjpebrothers.com"],
+    ["Solitaire", "solitairehomes.in"],
+    ["GSCID", "gscid.org"],
+    ["Ashoka Buildcon", "ashokabuildcon.com"],
+    ["WNS", "wns.com"],
+    ["Skoda", "skoda-auto.com"],
+    ["Reliance Trends", "reliancetrends.com"],
+    ["Bafna Jewellers", "rcbafna.com"],
+    ["Hero", "heromotocorp.com"],
+    ["Tejaswi Jewellers", "tejaswijewellers.com"],
+    ["ELPRC", "elpro.co.in"],
+    ["Hexaware", "hexaware.com"],
+    ["Infra.Market", "infra.market"],
+    ["Hapag-Lloyd", "hapag-lloyd.com"],
+    ["H.B. Fuller", "hbfuller.com"],
+    ["Knorr-Bremse", "knorr-bremse.com"],
+    ["Vodafone", "vodafone.com"],
+    ["QuinStreet", "quinstreet.com"],
+    ["MDIndia", "mdindiaonline.com"],
+    ["Mylan", "mylan.com"],
+    ["Puratos", "puratos.com"],
+    ["Shubhada", "shubhada.com"],
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <section className="relative">
@@ -61,35 +97,35 @@ function Index() {
         <div className="flex animate-[marquee_18s_linear_infinite] md:animate-[marquee_40s_linear_infinite] whitespace-nowrap text-[11px] font-medium tracking-[0.28em] text-white/70">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="px-8">
-              CURATED FURNITURE ~ TRANSPARENT PRODUCTION LINE ~ NO MDF EVER ~ 35 YEARS OF LEGACY ~
+              CURATED FURNITURE ~ TRANSPARENT PRODUCTION LINE ~ 35 YEARS OF LEGACY ~
             </span>
           ))}
         </div>
       </div>
 
-      <section className="mx-auto max-w-[1400px] px-6 pt-8 pb-20 md:px-10 md:pt-10 md:pb-20">
+      <section className="px-0 pt-8 pb-20 md:pt-10 md:pb-20">
         <p className="text-center text-[15px] font-semibold tracking-[0.10em]">
           AS TRUSTED BY
         </p>
-        <div className="mt-12 grid grid-cols-2 items-center justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-5 md:gap-12">
-          {[
-            { name: "Taj", src: logoTaj, heightClass: "h-16 md:h-20" },
-            { name: "Hexaware", src: logoHexaware, heightClass: "h-24 md:h-35" },
-            { name: "Tata", src: logoTata, heightClass: "h-16 md:h-20" },
-            { name: "Bank of Baroda", src: logoBob, heightClass: "h-24 md:h-30" },
-            { name: "SBI", src: logoSbi, heightClass: "h-16 md:h-20" },
-          ].map((brand) => (
-            <div
-              key={brand.name}
-              className="flex items-center justify-center h-16 w-full max-w-[180px] p-2 transition-all duration-300 hover:scale-105"
-            >
-              <img
-                src={brand.src}
-                alt={brand.name}
-                className={`w-full object-contain transition-all duration-300 ${brand.heightClass}`}
-              />
-            </div>
-          ))}
+        <div className="mt-10 overflow-hidden">
+          <div className="flex w-max animate-[marqueeReverse_48s_linear_infinite] items-center gap-5 whitespace-nowrap">
+            {[...clientLogos, ...clientLogos].map(([name, domain], index) => (
+              <div
+                key={`${name}-${index}`}
+                className="flex h-16 min-w-[210px] items-center justify-center gap-3 border-y border-foreground/10 bg-white px-6"
+              >
+                <img
+                  src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+                  alt={`${name} logo`}
+                  className="h-8 w-8 object-contain"
+                  loading="lazy"
+                />
+                <span className="text-sm font-semibold tracking-[0.04em] text-foreground/75">
+                  {name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
         <p className="mt-8 text-center text-xl text-muted-foreground">
           Hundreds of spaces. <br className="block sm:hidden" /> One standard.
@@ -104,35 +140,32 @@ function Index() {
           Transforming raw spaces into sanctuaries of warmth and light.
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2 items-stretch">
-          <figure className="relative overflow-hidden">
-            <img
-              src={projectBar}
-              alt="Atelier Bauhem residential interior"
-              className="aspect-[4/5] w-full object-cover"
-              width={1200}
-              height={1400}
-              loading="lazy"
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-6 text-white">
-              <p className="mt-1 max-w-xl text-xl text-white/85">Atelier Bauhem, 2023</p>
-              <p className="mt-0.5 max-w-xl text-xl text-white/85">Residential Interior</p>
-            </figcaption>
-          </figure>
-          <div className="grid grid-rows-[1fr_auto] gap-10">
-            <figure className="relative overflow-hidden aspect-[4/4] md:aspect-auto">
-              <img
-                src={projectHotel}
-                alt="Holiday Inn Elite Hospitality project"
-                className="w-full h-full object-cover md:absolute md:inset-0"
-                width={1200}
-                height={1400}
-                loading="lazy"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-6 text-white z-10">
-                <p className="mt-0.5 max-w-xl text-xl text-white/85">Holiday Inn, 2022</p>
-                <p className="mt-0.5 max-w-xl text-xl text-white/85">Elite Hospitality</p>
-              </figcaption>
-            </figure>
+          {featuredProjects.map((project, index) =>
+            project ? (
+              <Link
+                key={project.slug}
+                to="/portfolio/$projectSlug"
+                params={{ projectSlug: project.slug }}
+                className={index === 1 ? "grid grid-rows-[1fr_auto] gap-10" : "block"}
+              >
+                <figure className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="aspect-[4/5] w-full object-cover"
+                    width={1200}
+                    height={1400}
+                    loading="lazy"
+                  />
+                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-6 text-white">
+                    <p className="mt-1 max-w-xl text-xl text-white/85">{project.name}</p>
+                    <p className="mt-0.5 max-w-xl text-xl text-white/85">{project.service}</p>
+                  </figcaption>
+                </figure>
+              </Link>
+            ) : null,
+          )}
+          <div className="md:col-start-2 flex justify-end">
             <div className="flex justify-end">
               <Link
                 to="/portfolio"
@@ -164,12 +197,6 @@ function Index() {
                 className="w-full text-center bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90"
               >
                 SPEAK TO THE CURATOR
-              </Link>
-              <Link
-                to="/products"
-                className="w-full text-center bg-navy px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:bg-navy/90"
-              >
-                VIEW LOOKBOOK
               </Link>
             </div>
           </div>

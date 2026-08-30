@@ -13,7 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PortfolioProjectSlugRouteImport } from './routes/portfolio.$projectSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,47 +37,86 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioProjectSlugRoute = PortfolioProjectSlugRouteImport.update({
+  id: '/$projectSlug',
+  path: '/$projectSlug',
+  getParentRoute: () => PortfolioRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/products': typeof ProductsRoute
+  '/portfolio/$projectSlug': typeof PortfolioProjectSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/products': typeof ProductsRoute
+  '/portfolio/$projectSlug': typeof PortfolioProjectSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRoute
+  '/portfolio': typeof PortfolioRouteWithChildren
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/products': typeof ProductsRoute
+  '/portfolio/$projectSlug': typeof PortfolioProjectSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/portfolio' | '/products'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/portfolio'
+    | '/privacy-policy'
+    | '/products'
+    | '/portfolio/$projectSlug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/portfolio' | '/products'
-  id: '__root__' | '/' | '/about' | '/contact' | '/portfolio' | '/products'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/portfolio'
+    | '/privacy-policy'
+    | '/products'
+    | '/portfolio/$projectSlug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/portfolio'
+    | '/privacy-policy'
+    | '/products'
+    | '/portfolio/$projectSlug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  PortfolioRoute: typeof PortfolioRoute
+  PortfolioRoute: typeof PortfolioRouteWithChildren
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ProductsRoute: typeof ProductsRoute
 }
 
@@ -109,6 +150,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
@@ -116,14 +164,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/$projectSlug': {
+      id: '/portfolio/$projectSlug'
+      path: '/$projectSlug'
+      fullPath: '/portfolio/$projectSlug'
+      preLoaderRoute: typeof PortfolioProjectSlugRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
   }
 }
+
+interface PortfolioRouteChildren {
+  PortfolioProjectSlugRoute: typeof PortfolioProjectSlugRoute
+}
+
+const PortfolioRouteChildren: PortfolioRouteChildren = {
+  PortfolioProjectSlugRoute: PortfolioProjectSlugRoute,
+}
+
+const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(
+  PortfolioRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  PortfolioRoute: PortfolioRoute,
+  PortfolioRoute: PortfolioRouteWithChildren,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ProductsRoute: ProductsRoute,
 }
 export const routeTree = rootRouteImport

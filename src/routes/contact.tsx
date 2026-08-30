@@ -5,6 +5,8 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import workshop from "@/assets/workshop.jpg";
 import showroom from "@/assets/showroom.jpg";
+import knchanLogo from "../../LOGOS/Asset 8@2x.webp";
+import kalaaLogo from "../../LOGOS/Asset 7@2x.webp";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -61,9 +63,9 @@ function ContactPage() {
 
         <hr className="my-10 border-foreground/20" />
 
-        <div className="grid gap-10 md:grid-cols-[1fr_1.6fr]">
+        <div className="grid gap-10 md:grid-cols-[1fr_1.45fr]">
           <div className="md:border-r md:border-foreground/20 md:pr-10">
-            <h3 className="text-xl font-semibold">A PRIVATE CONSULTATION.</h3>
+            <h3 className="text-xl font-semibold">PRIVATE CONSULTATION.</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               A dedicated session to discuss your project requirements.
             </p>
@@ -81,26 +83,29 @@ function ContactPage() {
           </div>
 
           <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-            <div className="flex gap-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {(["FURNITURE", "LUXURY INTERIOR"] as const).map((t) => (
                 <button
                   key={t}
                   type="button"
                   onClick={() => setType(t)}
-                  className={`px-5 py-3 text-[11px] font-semibold tracking-[0.16em] transition-colors ${type === t
+                  className={`flex h-20 items-center justify-center border px-5 py-3 transition-colors ${type === t
                     ? "bg-navy text-white"
                     : "border border-navy text-navy hover:bg-navy/5"
                     }`}
+                  aria-label={t === "FURNITURE" ? "Knchan consultation" : "House of Kalaa consultation"}
                 >
-                  {t}
+                  <img
+                    src={t === "FURNITURE" ? knchanLogo : kalaaLogo}
+                    alt={t === "FURNITURE" ? "Knchan" : "House of Kalaa"}
+                    className={`max-h-12 w-auto ${type === t ? "brightness-0 invert" : ""}`}
+                  />
                 </button>
               ))}
             </div>
-            <div className="grid gap-5 md:grid-cols-2">
-              <Field label="FULL NAME" name="name" />
-              <Field label="EMAIL" name="email" type="email" />
-            </div>
-            <Field label="PROJECT TYPE" name="project" />
+
+            {type === "FURNITURE" ? <FurnitureFields /> : <InteriorFields />}
+
             <div>
               <label className="text-[11px] font-semibold tracking-[0.2em] text-foreground/80">
                 YOUR MESSAGE
@@ -111,7 +116,7 @@ function ContactPage() {
               />
             </div>
             <button className="bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90">
-              SEND INQUIRE
+              SEND INQUIRY
             </button>
           </form>
         </div>
@@ -190,5 +195,88 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         className="mt-2 w-full border border-foreground/20 bg-transparent px-3 py-2 text-sm outline-none focus:border-navy"
       />
     </div>
+  );
+}
+
+function SelectField({ label, name, options }: { label: string; name: string; options: string[] }) {
+  return (
+    <div>
+      <label
+        htmlFor={name}
+        className="text-[11px] font-semibold tracking-[0.2em] text-foreground/80"
+      >
+        {label}
+      </label>
+      <select
+        id={name}
+        name={name}
+        className="mt-2 w-full border border-foreground/20 bg-transparent px-3 py-2 text-sm outline-none focus:border-navy"
+      >
+        <option value="">Select</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+function FurnitureFields() {
+  return (
+    <>
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="NAME" name="name" />
+        <Field label="PHONE NUMBER" name="phone" type="tel" />
+      </div>
+      <div className="grid gap-5 md:grid-cols-2">
+        <SelectField
+          label="FURNITURE TYPE"
+          name="furnitureType"
+          options={["Sofa", "Bed", "Dining", "Storage", "Custom"]}
+        />
+        <SelectField
+          label="MATERIAL PREFERENCE"
+          name="materialPreference"
+          options={["Wood", "Upholstered", "Metal", "Mixed"]}
+        />
+      </div>
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="ROOM/SPACE" name="roomSpace" />
+        <SelectField
+          label="BUDGET RANGE"
+          name="budgetRange"
+          options={["Under Rs. 1 lakh", "Rs. 1-3 lakhs", "Rs. 3-7 lakhs", "Rs. 7 lakhs+"]}
+        />
+      </div>
+    </>
+  );
+}
+
+function InteriorFields() {
+  return (
+    <>
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="FULL NAME" name="fullName" />
+        <Field label="PHONE NUMBER" name="phone" type="tel" />
+      </div>
+      <div className="grid gap-5 md:grid-cols-2">
+        <SelectField
+          label="PROJECT TYPE"
+          name="projectType"
+          options={["Residential", "Hospitality", "Commercial"]}
+        />
+        <Field label="PROPERTY SIZE / AREA (SQ FT)" name="propertySize" />
+      </div>
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="LOCATION / CITY" name="location" />
+        <SelectField
+          label="TIMELINE"
+          name="timeline"
+          options={["Immediate", "3 months", "6 months+"]}
+        />
+      </div>
+    </>
   );
 }
