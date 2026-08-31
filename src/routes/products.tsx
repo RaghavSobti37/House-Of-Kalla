@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import productsHero from "@/assets/products-hero.jpg";
-import productKorta from "@/assets/product-korta.jpg";
+import productKorta from "@/assets/product-korta-1.jpg";
 import productLoungeChair from "@/assets/product-loungechair.jpg";
 import productSofa from "@/assets/product-sofa.jpg";
 import productDining from "@/assets/product-dining.jpg";
@@ -25,11 +25,12 @@ export const Route = createFileRoute("/products")({
 });
 
 const products = [
-  { name: "Korta Center Table", image: productKorta },
-  { name: "Lounge Chair", image: productLoungeChair },
-  { name: "Atelier Sofa", image: productSofa },
-  { name: "Dining Ensemble", image: productDining },
-  { name: "Leather Accent Chair", image: productLeather },
+  { name: "Sofas & Corner", image: productSofa },
+  { name: "Dining Table", image: productDining },
+  { name: "Side Table", image: productLoungeChair },
+  { name: "Coffee Table", image: productKorta },
+  { name: "Bed", image: productLeather },
+  { name: "TV Unit", image: productsHero },
 ];
 
 function ProductsPage() {
@@ -52,25 +53,22 @@ function ProductsPage() {
               <br />
               <span className="font-extrabold italic">HAS BEEN CHOSEN.</span>
             </h1>
-            <p className="mt-0.5 max-w-xl text-l text-white/85">
-              A curated collection contemporary masterworks. Every object is a dialogue between raw
-              material and human precision.
+            <p className="mt-3 max-w-xl text-lg text-white/85">
+              A curated collection of contemporary masterworks. Every object is a dialogue between
+              raw material and human precision.
             </p>
+            <Link
+              to="/contact"
+              className="mt-6 w-fit bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90"
+            >
+              INQUIRE LEAD TIME
+            </Link>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 py-12 md:px-10">
-        <div className="flex justify-end">
-          <Link
-            to="/contact"
-            className="bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90"
-          >
-            INQUIRE LEAD TIME
-          </Link>
-        </div>
-
-        <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
           {products.map((product) => (
             <ProductCard key={product.name} {...product} />
           ))}
@@ -82,26 +80,20 @@ function ProductsPage() {
   );
 }
 
-function ProductCard({
-  name,
-  image,
-}: {
-  name: string;
-  image: string;
-}) {
+function ProductCard({ name, image }: { name: string; image: string }) {
   return (
     <article className="group">
-      <img
-        src={image}
-        alt={name}
-        className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:opacity-90"
-        loading="lazy"
-      />
-      <h3 className="mt-5 text-3xl font-semibold tracking-tight text-gold md:text-4xl">{name}</h3>
-      <p className="mt-2 max-w-xl text-lg leading-relaxed text-foreground/75">
-        A considered piece for composed interiors, selected for material presence, proportion, and
-        long-term craft value.
-      </p>
+      <div className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-200 to-neutral-500">
+        <img
+          src={image}
+          alt={name}
+          className="aspect-[4/3] w-full object-contain px-6 pt-8 pb-16 transition duration-500 group-hover:opacity-90"
+          loading="lazy"
+        />
+      </div>
+      <h3 className="mt-5 text-center text-sm font-semibold uppercase tracking-[0.22em] text-foreground underline underline-offset-8 decoration-foreground/70">
+        {name}
+      </h3>
     </article>
   );
 }

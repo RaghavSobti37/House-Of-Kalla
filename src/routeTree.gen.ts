@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioProjectSlugRouteImport } from './routes/portfolio.$projectSlug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const ProductsRoute = ProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortfolioRoute,
+} as any)
 const PortfolioProjectSlugRoute = PortfolioProjectSlugRouteImport.update({
   id: '/$projectSlug',
   path: '/$projectSlug',
@@ -61,15 +67,16 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/products': typeof ProductsRoute
   '/portfolio/$projectSlug': typeof PortfolioProjectSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/portfolio': typeof PortfolioRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/products': typeof ProductsRoute
   '/portfolio/$projectSlug': typeof PortfolioProjectSlugRoute
+  '/portfolio': typeof PortfolioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +87,7 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/products': typeof ProductsRoute
   '/portfolio/$projectSlug': typeof PortfolioProjectSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,15 +99,16 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/products'
     | '/portfolio/$projectSlug'
+    | '/portfolio/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
-    | '/portfolio'
     | '/privacy-policy'
     | '/products'
     | '/portfolio/$projectSlug'
+    | '/portfolio'
   id:
     | '__root__'
     | '/'
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/products'
     | '/portfolio/$projectSlug'
+    | '/portfolio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -164,6 +174,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/': {
+      id: '/portfolio/'
+      path: '/'
+      fullPath: '/portfolio/'
+      preLoaderRoute: typeof PortfolioIndexRouteImport
+      parentRoute: typeof PortfolioRoute
+    }
     '/portfolio/$projectSlug': {
       id: '/portfolio/$projectSlug'
       path: '/$projectSlug'
@@ -176,10 +193,12 @@ declare module '@tanstack/react-router' {
 
 interface PortfolioRouteChildren {
   PortfolioProjectSlugRoute: typeof PortfolioProjectSlugRoute
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
 }
 
 const PortfolioRouteChildren: PortfolioRouteChildren = {
   PortfolioProjectSlugRoute: PortfolioProjectSlugRoute,
+  PortfolioIndexRoute: PortfolioIndexRoute,
 }
 
 const PortfolioRouteWithChildren = PortfolioRoute._addFileChildren(

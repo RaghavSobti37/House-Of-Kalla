@@ -3,8 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import heroKitchen from "@/assets/hero-kitchen.jpg";
-import productKorta from "@/assets/product-korta.jpg";
+import productKorta1 from "@/assets/product-korta-1.jpg";
+import productKorta2 from "@/assets/product-korta-2.jpg";
 import { portfolioProjects } from "@/lib/portfolio-data";
+import { clientLogos } from "@/lib/client-logos";
+import { ClientLogoMark } from "@/components/client-logo-mark";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -15,43 +18,6 @@ function Index() {
     portfolioProjects.find((project) => project.slug === "taj-pune"),
     portfolioProjects.find((project) => project.slug === "bafna-jewellers"),
   ].filter(Boolean);
-
-  const clientLogos = [
-    ["Taj Hotels", "tajhotels.com"],
-    ["Capgemini", "capgemini.com"],
-    ["Infosys", "infosys.com"],
-    ["Tech Mahindra", "techmahindra.com"],
-    ["Siemens", "siemens.com"],
-    ["SPJIMR", "spjimr.org"],
-    ["HP Gas", "hindustanpetroleum.com"],
-    ["State Bank of India", "sbi.co.in"],
-    ["NDCC", "ndccbank.com"],
-    ["Bank of Baroda", "bankofbaroda.in"],
-    ["HDFC Bank", "hdfcbank.com"],
-    ["PIMCO", "pimco.com"],
-    ["Paranjpe Brothers", "paranjpebrothers.com"],
-    ["Solitaire", "solitairehomes.in"],
-    ["GSCID", "gscid.org"],
-    ["Ashoka Buildcon", "ashokabuildcon.com"],
-    ["WNS", "wns.com"],
-    ["Skoda", "skoda-auto.com"],
-    ["Reliance Trends", "reliancetrends.com"],
-    ["Bafna Jewellers", "rcbafna.com"],
-    ["Hero", "heromotocorp.com"],
-    ["Tejaswi Jewellers", "tejaswijewellers.com"],
-    ["ELPRC", "elpro.co.in"],
-    ["Hexaware", "hexaware.com"],
-    ["Infra.Market", "infra.market"],
-    ["Hapag-Lloyd", "hapag-lloyd.com"],
-    ["H.B. Fuller", "hbfuller.com"],
-    ["Knorr-Bremse", "knorr-bremse.com"],
-    ["Vodafone", "vodafone.com"],
-    ["QuinStreet", "quinstreet.com"],
-    ["MDIndia", "mdindiaonline.com"],
-    ["Mylan", "mylan.com"],
-    ["Puratos", "puratos.com"],
-    ["Shubhada", "shubhada.com"],
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -104,9 +70,7 @@ function Index() {
       </div>
 
       <section className="px-0 pt-8 pb-20 md:pt-10 md:pb-20">
-        <p className="text-center text-[15px] font-semibold tracking-[0.10em]">
-          AS TRUSTED BY
-        </p>
+        <p className="text-center text-[15px] font-semibold tracking-[0.10em]">AS TRUSTED BY</p>
         <div className="mt-10 overflow-hidden">
           <div className="flex w-max animate-[marqueeReverse_48s_linear_infinite] items-center gap-5 whitespace-nowrap">
             {[...clientLogos, ...clientLogos].map(([name, domain], index) => (
@@ -114,12 +78,7 @@ function Index() {
                 key={`${name}-${index}`}
                 className="flex h-16 min-w-[210px] items-center justify-center gap-3 border-y border-foreground/10 bg-white px-6"
               >
-                <img
-                  src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
-                  alt={`${name} logo`}
-                  className="h-8 w-8 object-contain"
-                  loading="lazy"
-                />
+                <ClientLogoMark name={name} domain={domain} />
                 <span className="text-sm font-semibold tracking-[0.04em] text-foreground/75">
                   {name}
                 </span>
@@ -158,8 +117,8 @@ function Index() {
                     loading="lazy"
                   />
                   <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-6 text-white">
-                    <p className="mt-1 max-w-xl text-xl text-white/85">{project.name}</p>
-                    <p className="mt-0.5 max-w-xl text-xl text-white/85">{project.service}</p>
+                    <p className="text-xl font-semibold text-white">{project.name}</p>
+                    <p className="mt-1 text-lg text-white/85">{project.service}</p>
                   </figcaption>
                 </figure>
               </Link>
@@ -187,7 +146,7 @@ function Index() {
         </h2>
         <div className="mt-10 grid items-center gap-8 md:grid-cols-[1fr_1.4fr]">
           <div className="order-2 md:order-1 flex flex-col items-end text-right">
-            <h3 className="text-3xl font-bold md:text-4xl">Korta Low Table</h3>
+            <h3 className="text-3xl font-bold md:text-4xl">Korta Center Table</h3>
             <p className="mt-2 max-w-xl text-xl text-black/85">
               PATENTED BRONZE | COLLECTION OF 2025
             </p>
@@ -200,14 +159,24 @@ function Index() {
               </Link>
             </div>
           </div>
-          <img
-            src={productKorta}
-            alt="Korta low table"
-            className="order-1 md:order-2 w-full object-cover"
-            width={1400}
-            height={1000}
-            loading="lazy"
-          />
+          <div className="order-1 md:order-2 grid grid-cols-2 gap-3">
+            <img
+              src={productKorta1}
+              alt="Korta center table — view one"
+              className="aspect-[4/5] w-full object-cover"
+              width={700}
+              height={875}
+              loading="lazy"
+            />
+            <img
+              src={productKorta2}
+              alt="Korta center table — view two"
+              className="aspect-[4/5] w-full object-cover"
+              width={700}
+              height={875}
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 

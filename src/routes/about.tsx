@@ -92,7 +92,8 @@ function AboutPage() {
         <div className="mt-10 max-w-none space-y-4 text-lg md:text-xl leading-relaxed text-foreground/80">
           <p className="lg:whitespace-nowrap">House of Kalaa is what we built for you.</p>
           <p className="lg:whitespace-nowrap">
-            A 4,000 sq ft space where the most articulate interior design solutions sit alongside pieces made in our own factory.
+            A 4,000 sq ft space where the most articulate interior design solutions sit alongside
+            pieces made in our own factory.
           </p>
           <p className="lg:whitespace-nowrap">
             Where you can see, and experience what considered living actually looks like.
@@ -106,10 +107,12 @@ function AboutPage() {
 
         <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">WHAT WE BELIEVE</p>
         <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
-          We do not design rooms. We compose atmospheres where material <br className="hidden lg:inline" /> and meaning converge.
+          We do not design rooms. We compose atmospheres where material{" "}
+          <br className="hidden lg:inline" /> and meaning converge.
         </h2>
         <p className="mt-4 text-[17px] font-light tracking-[0.01em] text-foreground/80">
-          WE BELIEVE IN SHOWCASING OUR WORK,<br /> <span className="italic font-semibold text-navy">LITERALLY.</span>
+          WE BELIEVE IN SHOWCASING OUR WORK,
+          <br /> <span className="italic font-semibold text-navy">LITERALLY.</span>
         </p>
         <Link
           to="/contact"
@@ -121,37 +124,45 @@ function AboutPage() {
         <hr className="my-14 border-foreground/20" />
 
         <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">OUR HISTORY</p>
-        <div className="mt-8 grid gap-8 md:grid-cols-[0.9fr_1.4fr] md:items-start">
-          <div>
-            <h2 className="text-4xl font-semibold tracking-tight text-navy md:text-5xl">
-              Three decades, distilled.
-            </h2>
-            <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">
-              A legacy of interiors, furniture, and exacting execution brought into one composed
-              destination.
-            </p>
-          </div>
-          <div className="border-l border-gold/40 pl-6 md:pl-8">
-            {history.map((item) => (
-              <div key={item.year} className="relative pb-10 last:pb-0">
-                <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-gold md:-left-[37px]" />
-                <p className="text-[13px] font-semibold tracking-[0.18em] text-gold">
-                  {item.year}
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
-                  {item.title}
-                </h3>
-                <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                  {item.text}
-                </p>
-              </div>
-            ))}
+        <div className="mt-10">
+          <div className="relative mx-auto max-w-3xl">
+            <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 border-l border-dashed border-gold/40 md:block" />
+            {history.map((item, index) => {
+              const isLeft = index % 2 === 0;
+              return (
+                <div
+                  key={item.year}
+                  className={`relative pb-12 last:pb-0 md:grid md:grid-cols-2 md:gap-12 ${
+                    isLeft ? "" : "md:[&>*:first-child]:order-2"
+                  }`}
+                >
+                  <div className={isLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"}>
+                    <p className="text-[13px] font-semibold tracking-[0.18em] text-gold">
+                      {item.year}
+                    </p>
+                    <h3 className="mt-2 text-2xl font-semibold tracking-tight text-navy md:text-3xl">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <div
+                    className={
+                      isLeft
+                        ? "mt-4 md:mt-0 md:pl-10 md:text-left"
+                        : "mt-4 md:mt-0 md:pr-10 md:text-right"
+                    }
+                  >
+                    <p className="text-lg leading-relaxed text-muted-foreground">{item.text}</p>
+                  </div>
+                  <span className="absolute left-1/2 top-3 hidden h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 border-gold bg-background md:block" />
+                </div>
+              );
+            })}
           </div>
         </div>
 
         <hr className="my-14 border-foreground/20" />
 
-        <p className="text-[30px] font-semibold tracking-[0.01em] text-navy">THE HANDS BEHIND</p>
+        <p className="text-[30px] font-semibold tracking-[0.01em] text-navy">FOUNDER BIOS</p>
         <h2 className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">The Heritage…</h2>
       </section>
 
@@ -165,27 +176,29 @@ function AboutPage() {
           return (
             <div key={i} className={`${bgGradient} text-white`}>
               <div
-                className={`mx-auto grid max-w-[1180px] items-center gap-6 px-6 py-10 md:grid-cols-2 md:px-12 md:py-12 ${m.reverse ? "md:[&>*:first-child]:order-2" : ""
-                  }`}
+                className={`mx-auto grid max-w-[1180px] items-center gap-6 px-6 py-10 md:grid-cols-2 md:px-12 md:py-12 ${
+                  m.reverse ? "md:[&>*:first-child]:order-2" : ""
+                }`}
               >
                 <div>
-                  <h3 className="text-2xl font-bold tracking-tight md:text-3xl text-white">{m.name}</h3>
+                  <h3 className="text-2xl font-bold tracking-tight md:text-3xl text-white">
+                    {m.name}
+                  </h3>
                   <div className="w-fit">
                     <p className="mt-1.5 text-[18px] font-medium tracking-[0.01em] text-white/70 uppercase">
                       {m.role}
                     </p>
                     <div className="mt-2.5 mb-5 h-px w-full bg-white/30" />
                   </div>
-                  <p className="max-w-xl text-l md:text-l leading-relaxed text-white/80">
-                    {m.bio}
-                  </p>
+                  <p className="max-w-xl text-l md:text-l leading-relaxed text-white/80">{m.bio}</p>
                 </div>
                 <div className={m.reverse ? "md:justify-self-start" : "md:justify-self-end"}>
                   <img
                     src={m.image}
                     alt={m.name}
-                    className={`aspect-[3/4] w-[260px] md:w-[280px] object-cover ${m.grayscale ? "grayscale" : ""
-                      }`}
+                    className={`aspect-[3/4] w-[260px] md:w-[280px] object-cover ${
+                      m.grayscale ? "grayscale" : ""
+                    }`}
                     loading="lazy"
                   />
                 </div>

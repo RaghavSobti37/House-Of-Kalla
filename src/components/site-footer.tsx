@@ -17,7 +17,7 @@ export function SiteFooter() {
         <div className="flex flex-col sm:flex-row justify-between items-start gap-8 sm:gap-4">
           <div className="pl-0 sm:pl-8 md:pl-12">
             <h4 className="mb-4 text-[11px] font-semibold tracking-[0.2em] text-white/80">
-              NAVIGATION
+              QUICK LINKS
             </h4>
             <ul className="space-y-1.5 text-sm text-white/60">
               <li>

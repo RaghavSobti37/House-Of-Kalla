@@ -89,16 +89,25 @@ function ContactPage() {
                   key={t}
                   type="button"
                   onClick={() => setType(t)}
-                  className={`flex h-20 items-center justify-center border px-5 py-3 transition-colors ${type === t
-                    ? "bg-navy text-white"
-                    : "border border-navy text-navy hover:bg-navy/5"
-                    }`}
-                  aria-label={t === "FURNITURE" ? "Knchan consultation" : "House of Kalaa consultation"}
+                  className={`flex h-20 items-center justify-center border px-5 py-3 transition-colors ${
+                    type === t
+                      ? "bg-navy text-white"
+                      : "border border-navy text-navy hover:bg-navy/5"
+                  }`}
+                  aria-label={
+                    t === "FURNITURE" ? "Knchan consultation" : "House of Kalaa consultation"
+                  }
                 >
                   <img
                     src={t === "FURNITURE" ? knchanLogo : kalaaLogo}
                     alt={t === "FURNITURE" ? "Knchan" : "House of Kalaa"}
-                    className={`max-h-12 w-auto ${type === t ? "brightness-0 invert" : ""}`}
+                    className={`max-h-12 w-auto ${
+                      type === t
+                        ? "brightness-0 invert"
+                        : t === "LUXURY INTERIOR"
+                          ? "brightness-0"
+                          : ""
+                    }`}
                   />
                 </button>
               ))}
