@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { TitlePairing } from "@/components/title-pairing";
 import { portfolioProjects } from "@/lib/portfolio-data";
 
 export const Route = createFileRoute("/portfolio/$projectSlug")({
@@ -32,20 +33,26 @@ function ProjectPage() {
         />
       </section>
 
-      <section className="mx-auto max-w-[1180px] px-6 py-14 md:px-10">
-        <p className="text-[12px] font-semibold tracking-[0.18em] text-gold">
-          {project.category}
-        </p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight text-navy md:text-6xl">
-          {project.name}
-        </h1>
-        <p className="mt-2 text-xl text-black">{project.service}</p>
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-          {project.description}
-        </p>
+      <section className="mx-auto max-w-[1400px] px-6 py-14 md:px-10">
+        <div className="flex flex-col items-start">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">
+            {project.category}
+          </p>
+          <TitlePairing
+            className="mt-3 w-full"
+            eyebrow={project.name}
+            title={project.service}
+            eyebrowAs="h1"
+            titleAs="p"
+            eyebrowClassName="uppercase"
+          />
+          <p className="mt-6 max-w-3xl text-xl leading-relaxed text-black">
+            {project.description}
+          </p>
+        </div>
       </section>
 
-      <section className="mx-auto max-w-[1180px] px-6 pb-16 md:px-10">
+      <section className="mx-auto max-w-[1400px] px-6 pb-16 md:px-10">
         <div className="project-fade relative aspect-[16/9] overflow-hidden bg-ink">
           {project.gallery.map((image, index) => (
             <img
@@ -61,7 +68,7 @@ function ProjectPage() {
       </section>
 
       <section className="bg-ink py-16 text-white">
-        <div className="mx-auto max-w-[1180px] px-6 md:px-10">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <p className="text-[12px] font-semibold tracking-[0.18em] text-gold">
             VIEW MORE LIKE THIS
           </p>

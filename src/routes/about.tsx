@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { SectionHeading } from "@/components/section-heading";
 import workshop from "@/assets/workshop.jpg";
 import teamSanjay from "@/assets/team-sanjay.jpg";
 import teamDirector from "@/assets/team-director.jpg";
@@ -52,17 +53,26 @@ const history = [
   {
     year: "1991",
     title: "Knchan Associates is established",
-    text: "A turnkey interior practice built on rigorous craft, an uncompromising eye for detail, and trust earned across every commission.",
+    text: [
+      "A turnkey interior practice built on rigorous craft,",
+      "an uncompromising eye for detail, and trust earned across every commission.",
+    ],
   },
   {
     year: "2017",
     title: "Knchan Furniture Studio takes form",
-    text: "The conviction that exceptional interiors demand furniture of equal distinction: bespoke, considered, and built to endure.",
+    text: [
+      "The conviction that exceptional interiors demand furniture",
+      "of equal distinction: bespoke, considered, and built to endure.",
+    ],
   },
   {
     year: "Today",
     title: "House of Kalaa - Luxury Interiors",
-    text: "Three decades of craft, distilled into one destination. Where a home is not decorated, it is composed.",
+    text: [
+      "Three decades of craft, distilled into one destination.",
+      "Where a home is not decorated, it is composed.",
+    ],
   },
 ];
 
@@ -105,11 +115,15 @@ function AboutPage() {
 
         <hr className="my-14 border-foreground/20" />
 
-        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">WHAT WE BELIEVE</p>
-        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
-          We do not design rooms. We compose atmospheres where material{" "}
-          <br className="hidden lg:inline" /> and meaning converge.
-        </h2>
+        <SectionHeading
+          eyebrow="WHAT WE BELIEVE"
+          title={
+            <>
+              We do not design rooms. We compose atmospheres where material{" "}
+              <br className="hidden lg:inline" /> and meaning converge.
+            </>
+          }
+        />
         <p className="mt-4 text-[17px] font-light tracking-[0.01em] text-foreground/80">
           WE BELIEVE IN SHOWCASING OUR WORK,
           <br /> <span className="italic font-semibold text-navy">LITERALLY.</span>
@@ -125,34 +139,30 @@ function AboutPage() {
 
         <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">OUR HISTORY</p>
         <div className="mt-10">
-          <div className="relative mx-auto max-w-3xl">
+          <div className="relative mx-auto w-full max-w-[1100px]">
             <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 border-l border-dashed border-gold/40 md:block" />
             {history.map((item, index) => {
               const isLeft = index % 2 === 0;
               return (
                 <div
                   key={item.year}
-                  className={`relative pb-12 last:pb-0 md:grid md:grid-cols-2 md:gap-12 ${
+                  className={`relative pb-12 last:pb-0 md:grid md:grid-cols-2 md:gap-10 ${
                     isLeft ? "" : "md:[&>*:first-child]:order-2"
                   }`}
                 >
-                  <div className={isLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"}>
-                    <p className="text-[13px] font-semibold tracking-[0.18em] text-gold">
+                  <div className={isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}>
+                    <p className="text-[24px] font-semibold tracking-[0.07em] text-gold">
                       {item.year}
                     </p>
                     <h3 className="mt-2 text-2xl font-semibold tracking-tight text-navy md:text-3xl">
                       {item.title}
                     </h3>
+                    <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground md:text-base">
+                      <span className="md:block md:whitespace-nowrap">{item.text[0]}</span>
+                      <span className="md:block md:whitespace-nowrap"> {item.text[1]}</span>
+                    </p>
                   </div>
-                  <div
-                    className={
-                      isLeft
-                        ? "mt-4 md:mt-0 md:pl-10 md:text-left"
-                        : "mt-4 md:mt-0 md:pr-10 md:text-right"
-                    }
-                  >
-                    <p className="text-lg leading-relaxed text-muted-foreground">{item.text}</p>
-                  </div>
+                  <div aria-hidden className="hidden md:block" />
                   <span className="absolute left-1/2 top-3 hidden h-2.5 w-2.5 -translate-x-1/2 rounded-full border-2 border-gold bg-background md:block" />
                 </div>
               );
@@ -208,13 +218,12 @@ function AboutPage() {
         })}
       </section>
 
-      <section className="py-20 text-center">
-        <p className="text-[18px] font-semibold tracking-[0.01em] text-gold">
-          EXPERIENCE THE LEGACY
-        </p>
-        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
-          From our workshop, to your home.
-        </h2>
+      <section className="bg-background py-20 text-center">
+        <SectionHeading
+          align="center"
+          eyebrow="EXPERIENCE THE LEGACY"
+          title="From our workshop, to your home."
+        />
       </section>
 
       <SiteFooter />

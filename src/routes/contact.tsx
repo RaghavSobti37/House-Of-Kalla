@@ -3,9 +3,10 @@ import { useState } from "react";
 import { MapPin, Clock } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { SectionHeading } from "@/components/section-heading";
 import workshop from "@/assets/workshop.jpg";
 import showroom from "@/assets/showroom.jpg";
-import knchanLogo from "../../LOGOS/Asset 8@2x.webp";
+import knchanLogo from "../../LOGOS/knchan-navbar.png";
 import kalaaLogo from "../../LOGOS/Asset 7@2x.webp";
 
 export const Route = createFileRoute("/contact")({
@@ -41,24 +42,30 @@ function ContactPage() {
             <h1 className="max-w-2xl text-4xl font-light leading-tight tracking-tight text-white md:text-5xl">
               YOUR SPACE DESERVES,
               <br />
-              <span className="font-medium italic">BETTER.</span>
+              <span className="font-bold italic">BETTER.</span>
             </h1>
-            <p className="mt-4 max-w-lg text-sm text-white/85">
-              A sanctuary of craftsmanship in the heart of industrial Nashik, we would love to hear
-              about your vision regardless if you're starting from scratch.
+            <p className="mt-2 text-xl leading-snug text-white/85">
+              <span className="block lg:whitespace-nowrap">
+                A sanctuary of craftsmanship in the heart of industrial Nashik,
+              </span>
+              <span className="block lg:whitespace-nowrap">
+                we would love to hear about your vision regardless if you're starting from scratch.
+              </span>
             </p>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
-        <p className="text-[15px] font-semibold tracking-[0.10em] text-gold">INQUIRE</p>
-        <h2 className="mt-3 max-w-none text-3xl font-semibold tracking-tight md:text-4xl lg:whitespace-nowrap">
-          Begin your journey.
-        </h2>
-        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-          Whether you are a private collector or an architect detailing a vision seeking a unique
-          masterpiece, we are ready to assist you with selections to curate your space into a home.
+        <SectionHeading eyebrow="INQUIRE" title="Begin your journey." />
+        <p className="mt-2 text-xl leading-snug text-muted-foreground">
+          <span className="block lg:whitespace-nowrap">
+            Whether you are a private collector or an architect detailing a vision seeking a unique
+            masterpiece,
+          </span>
+          <span className="block lg:whitespace-nowrap">
+            we are ready to assist you with selections to curate your space into a home.
+          </span>
         </p>
 
         <hr className="my-10 border-foreground/20" />
@@ -89,10 +96,10 @@ function ContactPage() {
                   key={t}
                   type="button"
                   onClick={() => setType(t)}
-                  className={`flex h-20 items-center justify-center border px-5 py-3 transition-colors ${
+                  className={`flex h-20 items-center justify-center px-5 py-3 transition-colors ${
                     type === t
-                      ? "bg-navy text-white"
-                      : "border border-navy text-navy hover:bg-navy/5"
+                      ? "border border-navy bg-white"
+                      : "border border-transparent hover:bg-black/5"
                   }`}
                   aria-label={
                     t === "FURNITURE" ? "Knchan consultation" : "House of Kalaa consultation"
@@ -102,11 +109,7 @@ function ContactPage() {
                     src={t === "FURNITURE" ? knchanLogo : kalaaLogo}
                     alt={t === "FURNITURE" ? "Knchan" : "House of Kalaa"}
                     className={`max-h-12 w-auto ${
-                      type === t
-                        ? "brightness-0 invert"
-                        : t === "LUXURY INTERIOR"
-                          ? "brightness-0"
-                          : ""
+                      t === "LUXURY INTERIOR" ? "brightness-0" : ""
                     }`}
                   />
                 </button>

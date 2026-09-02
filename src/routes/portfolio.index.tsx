@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { TitlePairing } from "@/components/title-pairing";
 import handsCraft from "@/assets/hands-craft.jpg";
 import { portfolioProjects, type ProjectCategory } from "@/lib/portfolio-data";
 
@@ -33,12 +34,7 @@ function PortfolioPage() {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <section className="mx-auto max-w-[1400px] px-6 pt-16 md:px-10">
-        <p className="text-[30px] font-semibold tracking-[0.01em] text-navy">
-          POSSIBILITIES MADE REAL!
-        </p>
-        <h1 className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">
-          This work brought us here.
-        </h1>
+        <TitlePairing eyebrow="POSSIBILITIES MADE REAL!" title="This work brought us here." />
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           Every project begins with a conversation. Every one ends with a space that is completely,
           specifically, unrepeatable.
@@ -124,7 +120,7 @@ function PortfolioPage() {
               className="aspect-[16/9] w-full object-cover grayscale"
               loading="lazy"
             />
-            <div className="absolute bottom-0 left-0 z-10 max-w-[250px] bg-white p-5 shadow-2xl">
+            <div className="absolute bottom-0 left-0 z-10 max-w-[250px] bg-background p-5 shadow-2xl">
               <p className="text-[11px] font-medium leading-normal tracking-[0.08em] text-[#1a1a1a]">
                 "WE DO NOT BUILD FURNITURE, WE CURATE DOMESTIC LANDSCAPES THROUGH ARCHIVAL FORMS"
               </p>

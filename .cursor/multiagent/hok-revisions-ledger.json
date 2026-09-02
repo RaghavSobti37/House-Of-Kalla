@@ -1,0 +1,14 @@
+{
+  "slug": "hok-revisions",
+  "phase": "done",
+  "slices": [
+    { "sliceId": "assets", "status": "done", "ownsFiles": ["src/assets/**"] },
+    { "sliceId": "home", "status": "done", "ownsFiles": ["src/routes/index.tsx"] },
+    { "sliceId": "portfolio", "status": "done", "ownsFiles": ["src/lib/portfolio-data.ts", "src/routes/portfolio.tsx", "src/routes/portfolio.$projectSlug.tsx"] },
+    { "sliceId": "products", "status": "done", "ownsFiles": ["src/routes/products.tsx"] },
+    { "sliceId": "about", "status": "done", "ownsFiles": ["src/routes/about.tsx"] },
+    { "sliceId": "contact-footer", "status": "done", "ownsFiles": ["src/routes/contact.tsx", "src/components/site-footer.tsx", "src/routes/privacy-policy.tsx"] }
+  ],
+  "verifyCommands": ["npm run build", "npm run lint"],
+  "testAgent": "PASS — npm run build exit 0"
+}

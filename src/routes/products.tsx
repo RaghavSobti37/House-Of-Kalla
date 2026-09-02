@@ -2,11 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import productsHero from "@/assets/products-hero.jpg";
-import productKorta from "@/assets/product-korta-1.jpg";
-import productLoungeChair from "@/assets/product-loungechair.jpg";
 import productSofa from "@/assets/product-sofa.jpg";
 import productDining from "@/assets/product-dining.jpg";
-import productLeather from "@/assets/product-leather.jpg";
+import productSideTable from "@/assets/product-side-table.jpg";
+import productCoffeeTable from "@/assets/product-coffee-table.jpg";
+import productBed from "@/assets/product-bed.jpg";
+import productTvUnit from "@/assets/product-tv-unit.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -27,10 +28,10 @@ export const Route = createFileRoute("/products")({
 const products = [
   { name: "Sofas & Corner", image: productSofa },
   { name: "Dining Table", image: productDining },
-  { name: "Side Table", image: productLoungeChair },
-  { name: "Coffee Table", image: productKorta },
-  { name: "Bed", image: productLeather },
-  { name: "TV Unit", image: productsHero },
+  { name: "Side Table", image: productSideTable },
+  { name: "Coffee Table", image: productCoffeeTable },
+  { name: "Bed", image: productBed },
+  { name: "TV Unit", image: productTvUnit },
 ];
 
 function ProductsPage() {
@@ -83,11 +84,13 @@ function ProductsPage() {
 function ProductCard({ name, image }: { name: string; image: string }) {
   return (
     <article className="group">
-      <div className="relative overflow-hidden bg-gradient-to-b from-white via-neutral-200 to-neutral-500">
+      <div className="relative aspect-square overflow-hidden">
         <img
           src={image}
           alt={name}
-          className="aspect-[4/3] w-full object-contain px-6 pt-8 pb-16 transition duration-500 group-hover:opacity-90"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+          width={1600}
+          height={1600}
           loading="lazy"
         />
       </div>

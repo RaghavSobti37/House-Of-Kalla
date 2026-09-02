@@ -1,6 +1,6 @@
 export type ProjectCategory = "Hospitality" | "Commercial";
 
-// Taj Nashik — best available from Drive (source files are web-compressed)
+// Taj Nashik — upscaled from best web source (no TIFF originals available)
 import tajNashikMain from "../assets/portfolio/taj-nashik/taj-nashik-main.jpg";
 import tajNashik1 from "../assets/portfolio/taj-nashik/taj-nashik-1.jpg";
 import tajNashik2 from "../assets/portfolio/taj-nashik/taj-nashik-2.jpg";
@@ -50,7 +50,7 @@ export const portfolioProjects = [
     name: "Taj Nashik",
     label: "Taj nashik",
     category: "Hospitality" as const,
-    service: "Complete Room Interior Design",
+    service: "Complete room interior design",
     image: tajNashikMain,
     gallery: [
       tajNashikMain,
@@ -70,7 +70,7 @@ export const portfolioProjects = [
     name: "Taj Pune",
     label: "Taj pune",
     category: "Hospitality" as const,
-    service: "Complete Room Interior Design",
+    service: "Complete room interior design",
     image: tajPuneHero,
     gallery: [
       tajPuneHero,
@@ -90,7 +90,7 @@ export const portfolioProjects = [
     name: "Bafna Jewellers",
     label: "RC bafna",
     category: "Commercial" as const,
-    service: "Complete Showroom Interior Design",
+    service: "Complete showroom interior design",
     image: bafna1,
     gallery: [bafna1, bafna2, bafna3, bafna4, bafna10, bafna2, bafna4, bafna3],
     description:
@@ -101,7 +101,7 @@ export const portfolioProjects = [
     name: "Corporate Office Spaces",
     label: "Bank of Baroda",
     category: "Commercial" as const,
-    service: "Complete Interior Design",
+    service: "Complete interior design",
     image: bobHero,
     gallery: [bobHero, bob1, bob2, bob3, bob4, bob5, bob6, bob7, bob8, bob9, bob10, bob11, bob12, bob13, bob14],
     description:

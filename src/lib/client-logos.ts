@@ -1,45 +1,116 @@
-/** Client logos sourced via Google favicon service (256px) with Clearbit fallback. */
+import logoAshoka from "@/assets/client-logos/ashoka.png";
+import logoBafna from "@/assets/client-logos/bafna.png";
+import logoBob from "@/assets/client-logos/bob.svg";
+import logoCapgemini from "@/assets/client-logos/capgemini.png";
+import logoElpro from "@/assets/client-logos/elpro.png";
+import logoGscid from "@/assets/client-logos/gscid.png";
+import logoHapagLloyd from "@/assets/client-logos/hapag-lloyd.png";
+import logoHbFuller from "@/assets/client-logos/hb-fuller.png";
+import logoHdfcbank from "@/assets/client-logos/hdfcbank.svg";
+import logoHero from "@/assets/client-logos/hero.png";
+import logoHexaware from "@/assets/client-logos/hexaware.svg";
+import logoHpgas from "@/assets/client-logos/hpgas.png";
+import logoInfosys from "@/assets/client-logos/infosys.svg";
+import logoInfraMarket from "@/assets/client-logos/infra-market.png";
+import logoKnorrBremse from "@/assets/client-logos/knorr-bremse.svg";
+import logoMdindia from "@/assets/client-logos/mdindia.png";
+import logoMylan from "@/assets/client-logos/mylan.png";
+import logoNdcc from "@/assets/client-logos/ndcc.png";
+import logoParanjpe from "@/assets/client-logos/paranjpe.svg";
+import logoPimco from "@/assets/client-logos/pimco.png";
+import logoPuratos from "@/assets/client-logos/puratos.png";
+import logoQuinstreet from "@/assets/client-logos/quinstreet.png";
+import logoRelianceTrends from "@/assets/client-logos/reliance-trends.png";
+import logoSbi from "@/assets/client-logos/sbi.svg";
+import logoShubhada from "@/assets/client-logos/shubhada.png";
+import logoSiemens from "@/assets/client-logos/siemens.svg";
+import logoSkoda from "@/assets/client-logos/skoda.svg";
+import logoSolitaire from "@/assets/client-logos/solitaire.png";
+import logoSpjimr from "@/assets/client-logos/spjimr.png";
+import logoTajhotels from "@/assets/client-logos/tajhotels.svg";
+import logoTechmahindra from "@/assets/client-logos/techmahindra.png";
+import logoTejaswi from "@/assets/client-logos/tejaswi.png";
+import logoVodafone from "@/assets/client-logos/vodafone.svg";
+import logoWns from "@/assets/client-logos/wns.png";
+
+/** Client logos — each entry maps to a bundled asset in `src/assets/client-logos/`. */
 export const clientLogos = [
-  ["Taj Hotels", "tajhotels.com"],
-  ["Capgemini", "capgemini.com"],
-  ["Infosys", "infosys.com"],
-  ["Tech Mahindra", "techmahindra.com"],
-  ["Siemens", "siemens.com"],
-  ["SPJIMR", "spjimr.org"],
-  ["HP Gas", "hindustanpetroleum.com"],
-  ["State Bank of India", "sbi.co.in"],
-  ["NDCC", "ndcc.in"],
-  ["Bank of Baroda", "bankofbaroda.in"],
-  ["HDFC Bank", "hdfcbank.com"],
-  ["PIMCO", "pimco.com"],
-  ["Paranjpe Brothers", "paranjpebrothers.com"],
-  ["Solitaire", "solitairehomes.in"],
-  ["GSCID", "gscid.com"],
-  ["Ashoka Buildcon", "ashokabuildcon.com"],
-  ["WNS", "wns.com"],
-  ["Skoda", "skoda-auto.com"],
-  ["Reliance Trends", "reliancetrends.com"],
-  ["Bafna Jewellers", "bafnajewellers.com"],
-  ["Hero", "heromotocorp.com"],
-  ["Tejaswi Jewellers", "tejaswijewellers.com"],
-  ["ELPRC", "elpro.com"],
-  ["Hexaware", "hexaware.com"],
-  ["Infra.Market", "infra.market"],
-  ["Hapag-Lloyd", "hapag-lloyd.de"],
-  ["H.B. Fuller", "hbfuller.com"],
-  ["Knorr-Bremse", "www.knorr-bremse.com"],
-  ["Vodafone", "vodafone.com"],
-  ["QuinStreet", "quinstreet.com"],
-  ["MDIndia", "mdindiaonline.com"],
-  ["Mylan", "viatris.com"],
-  ["Puratos", "puratos.com"],
-  ["Shubhada", "shubhadapolymers.com"],
+  ["Taj Hotels", "tajhotels"],
+  ["Capgemini", "capgemini"],
+  ["Infosys", "infosys"],
+  ["Tech Mahindra", "techmahindra"],
+  ["Siemens", "siemens"],
+  ["SPJIMR", "spjimr"],
+  ["HP Gas", "hpgas"],
+  ["State Bank of India", "sbi"],
+  ["NDCC", "ndcc"],
+  ["Bank of Baroda", "bob"],
+  ["HDFC Bank", "hdfcbank"],
+  ["PIMCO", "pimco"],
+  ["Paranjpe Brothers", "paranjpe"],
+  ["Solitaire", "solitaire"],
+  ["GSCID", "gscid"],
+  ["Ashoka Buildcon", "ashoka"],
+  ["WNS", "wns"],
+  ["Skoda", "skoda"],
+  ["Reliance Trends", "reliance-trends"],
+  ["Bafna Jewellers", "bafna"],
+  ["Hero", "hero"],
+  ["Tejaswi Jewellers", "tejaswi"],
+  ["ELPRC", "elpro"],
+  ["Hexaware", "hexaware"],
+  ["Infra.Market", "infra-market"],
+  ["Hapag-Lloyd", "hapag-lloyd"],
+  ["H.B. Fuller", "hb-fuller"],
+  ["Knorr-Bremse", "knorr-bremse"],
+  ["Vodafone", "vodafone"],
+  ["QuinStreet", "quinstreet"],
+  ["MDIndia", "mdindia"],
+  ["Mylan", "mylan"],
+  ["Puratos", "puratos"],
+  ["Shubhada", "shubhada"],
 ] as const;
 
-export function googleLogoUrl(domain: string, size = 128) {
-  return `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=${size}`;
-}
+export type ClientLogoName = (typeof clientLogos)[number][0];
+export type ClientLogoSlug = (typeof clientLogos)[number][1];
 
-export function googleLogoFallbackUrl(domain: string, size = 128) {
-  return `https://www.google.com/s2/favicons?domain=${domain}&sz=${size}`;
+const clientLogoSources: Record<ClientLogoSlug, string> = {
+  tajhotels: logoTajhotels,
+  capgemini: logoCapgemini,
+  infosys: logoInfosys,
+  techmahindra: logoTechmahindra,
+  siemens: logoSiemens,
+  spjimr: logoSpjimr,
+  hpgas: logoHpgas,
+  sbi: logoSbi,
+  ndcc: logoNdcc,
+  bob: logoBob,
+  hdfcbank: logoHdfcbank,
+  pimco: logoPimco,
+  paranjpe: logoParanjpe,
+  solitaire: logoSolitaire,
+  gscid: logoGscid,
+  ashoka: logoAshoka,
+  wns: logoWns,
+  skoda: logoSkoda,
+  "reliance-trends": logoRelianceTrends,
+  bafna: logoBafna,
+  hero: logoHero,
+  tejaswi: logoTejaswi,
+  elpro: logoElpro,
+  hexaware: logoHexaware,
+  "infra-market": logoInfraMarket,
+  "hapag-lloyd": logoHapagLloyd,
+  "hb-fuller": logoHbFuller,
+  "knorr-bremse": logoKnorrBremse,
+  vodafone: logoVodafone,
+  quinstreet: logoQuinstreet,
+  mdindia: logoMdindia,
+  mylan: logoMylan,
+  puratos: logoPuratos,
+  shubhada: logoShubhada,
+};
+
+export function getClientLogoSrc(slug: ClientLogoSlug) {
+  return clientLogoSources[slug];
 }

@@ -1,40 +1,25 @@
-import { useState } from "react";
-import { googleLogoFallbackUrl, googleLogoUrl } from "@/lib/client-logos";
+import { getClientLogoSrc, type ClientLogoSlug } from "@/lib/client-logos";
 
-export function ClientLogoMark({ name, domain }: { name: string; domain: string }) {
-  const [src, setSrc] = useState(googleLogoUrl(domain, 256));
-  const initials = name
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join("")
-    .toUpperCase();
+/** 2x intrinsic size for retina — displayed at 56px. */
+const LOGO_INTRINSIC = 112;
+
+export function ClientLogoMark({ name, slug }: { name: string; slug: ClientLogoSlug }) {
+  const src = getClientLogoSrc(slug);
 
   return (
-    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-white">
+    <div className="flex size-14 shrink-0 items-center justify-center">
       {src ? (
         <img
           src={src}
           alt={`${name} logo`}
-          className="h-full w-full object-contain p-0.5"
-          width={256}
-          height={256}
-          loading="lazy"
-          onError={() => {
-            if (src.includes("faviconV2")) {
-              setSrc(googleLogoFallbackUrl(domain, 256));
-              return;
-            }
-            if (!src.includes("clearbit.com")) {
-              setSrc(`https://logo.clearbit.com/${domain}`);
-              return;
-            }
-            setSrc("");
-          }}
+          className="max-h-full max-w-full object-contain object-center"
+          width={LOGO_INTRINSIC}
+          height={LOGO_INTRINSIC}
+          decoding="sync"
+          loading="eager"
+          draggable={false}
         />
-      ) : (
-        <span className="text-[10px] font-bold tracking-[0.08em] text-navy/70">{initials}</span>
-      )}
+      ) : null}
     </div>
   );
 }

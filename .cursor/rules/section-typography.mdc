@@ -1,0 +1,27 @@
+---
+description: Section eyebrow + title typography for House of Kalaa
+globs: "src/**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# Section typography
+
+Use `SectionHeading` from `@/components/section-heading` for gold-eyebrow section titles.
+
+## Pattern
+
+- **Eyebrow:** Inter, 15px, semibold, `tracking-[0.10em]`, gold
+- **Title:** Inter sans-serif, semibold — never `font-serif` / Playfair for section titles
+- **Desktop:** one line via `lg:whitespace-nowrap` (default on `SectionHeading`)
+- **Mobile/tablet:** normal wrap when text does not fit
+
+## Do not
+
+- Use `font-serif`, `font-normal`, or `max-w-3xl` on section titles that should match site pattern
+- Hand-roll eyebrow + h2 pairs when `SectionHeading` fits
+
+## Exceptions
+
+- Hero `h1` blocks (light/bold mix on imagery)
+- Decorative serif quote marks in testimonials
+- Page-level navy eyebrows (`text-navy`, larger sizes) on about hero sections
