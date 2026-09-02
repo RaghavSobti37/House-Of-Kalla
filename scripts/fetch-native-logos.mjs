@@ -20,7 +20,8 @@ const direct = {
   tejaswi: "https://www.tejaswijewellers.com/images/logo.png",
   elpro: "https://www.elpro.com/images/logo.png",
   ndcc: "https://www.ndcc.in/images/logo.png",
-  puratos: "https://www.puratos.com/static/version1730000000/frontend/Puratos/default/en_US/images/logo.svg",
+  puratos:
+    "https://www.puratos.com/static/version1730000000/frontend/Puratos/default/en_US/images/logo.svg",
   "infra-market": "https://infra.market/assets/logo.svg",
   hpgas: "https://www.hindustanpetroleum.com/images/HP-logo.png",
   "reliance-trends": "https://www.reliancetrends.com/resources/images/logo.png",
@@ -47,9 +48,7 @@ async function saveLogo(slug, buf) {
   if (maxSide > 1024) {
     pipeline.resize(1024, 1024, { fit: "inside", withoutEnlargement: true });
   }
-  await pipeline
-    .png({ compressionLevel: 6 })
-    .toFile(path.join(out, `${slug}.png`));
+  await pipeline.png({ compressionLevel: 6 }).toFile(path.join(out, `${slug}.png`));
   console.log(`png ${slug} (${meta.width}x${meta.height})`);
 }
 

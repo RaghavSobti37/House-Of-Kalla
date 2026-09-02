@@ -78,7 +78,8 @@ for (const [slug, domain] of Object.entries(domains)) {
     let iconUrl = match[1];
     if (iconUrl.startsWith("//")) iconUrl = `https:${iconUrl}`;
     else if (iconUrl.startsWith("/")) iconUrl = `https://${domain}${iconUrl}`;
-    else if (!/^https?:/i.test(iconUrl)) iconUrl = `https://${domain}/${iconUrl.replace(/^\.\//, "")}`;
+    else if (!/^https?:/i.test(iconUrl))
+      iconUrl = `https://${domain}/${iconUrl.replace(/^\.\//, "")}`;
 
     const res = await fetch(iconUrl, { headers });
     if (!res.ok) continue;

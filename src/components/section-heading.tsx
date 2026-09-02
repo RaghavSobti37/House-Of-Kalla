@@ -23,12 +23,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn(align === "center" && "text-center", className)}>
-      <p
-        className={cn(
-          "text-[15px] font-semibold tracking-[0.10em] text-gold",
-          eyebrowClassName,
-        )}
-      >
+      <p className={cn("text-[15px] font-semibold tracking-[0.10em] text-gold", eyebrowClassName)}>
         {eyebrow}
       </p>
       <h2

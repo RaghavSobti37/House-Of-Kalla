@@ -108,9 +108,7 @@ function ContactPage() {
                   <img
                     src={t === "FURNITURE" ? knchanLogo : kalaaLogo}
                     alt={t === "FURNITURE" ? "Knchan" : "House of Kalaa"}
-                    className={`max-h-12 w-auto ${
-                      t === "LUXURY INTERIOR" ? "brightness-0" : ""
-                    }`}
+                    className={`max-h-12 w-auto ${t === "LUXURY INTERIOR" ? "brightness-0" : ""}`}
                   />
                 </button>
               ))}

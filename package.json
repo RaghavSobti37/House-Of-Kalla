@@ -9,6 +9,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "validate:products": "node scripts/validate-products.mjs",
+    "validate": "bun run lint && bun run validate:products && bun run build",
     "format": "prettier --write ."
   },
   "dependencies": {

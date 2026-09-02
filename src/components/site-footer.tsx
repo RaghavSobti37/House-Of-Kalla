@@ -8,7 +8,11 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1400px] gap-8 px-6 py-16 md:grid-cols-2 md:px-10">
         <div>
           <div className="inline-flex flex-col items-center text-center mb-6 md:mb-0">
-            <img src={logo} alt="House of Kalaa" className="h-22 transform md:translate-y-12 w-auto brightness-0 invert" />
+            <img
+              src={logo}
+              alt="House of Kalaa"
+              className="h-22 transform md:translate-y-12 w-auto brightness-0 invert"
+            />
             <p className="mt-3 text-[12px] tracking-[0.10em] md:translate-y-12 text-white/60">
               WHERE CRAFT BECOMES HOME
             </p>
@@ -53,7 +57,9 @@ export function SiteFooter() {
             </ul>
           </div>
           <div className="text-left sm:text-right flex flex-col items-start sm:items-end">
-            <h4 className="mb-4 text-[11px] font-semibold tracking-[0.2em] text-white/80">STUDIO</h4>
+            <h4 className="mb-4 text-[11px] font-semibold tracking-[0.2em] text-white/80">
+              STUDIO
+            </h4>
             <p className="text-sm leading-relaxed text-white/60">
               B-36, NICE, A Road, 5th street,
               <br />

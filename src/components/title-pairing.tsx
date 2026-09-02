@@ -26,18 +26,12 @@ export function TitlePairing({
   return (
     <div className={className}>
       <EyebrowTag
-        className={cn(
-          "text-[30px] font-semibold tracking-[0.01em] text-navy",
-          eyebrowClassName,
-        )}
+        className={cn("text-[30px] font-semibold tracking-[0.01em] text-navy", eyebrowClassName)}
       >
         {eyebrow}
       </EyebrowTag>
       <TitleTag
-        className={cn(
-          "mt-1 text-4xl font-semibold tracking-tight md:text-5xl",
-          titleClassName,
-        )}
+        className={cn("mt-1 text-4xl font-semibold tracking-tight md:text-5xl", titleClassName)}
       >
         {title}
       </TitleTag>

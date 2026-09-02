@@ -29,7 +29,14 @@ jobs:
           test -f package.json || (echo "Missing package.json" && exit 1)
           test -f vite.config.ts || (echo "Missing vite.config.ts" && exit 1)
           test -d src || (echo "Missing src directory" && exit 1)
+          test -f src/routes/products.tsx || (echo "Missing products page" && exit 1)
           echo "All core files exist."
 
       - name: Run Linter
         run: bun run lint
+
+      - name: Validate Products Page (assets + responsive layout)
+        run: bun run validate:products
+
+      - name: Production Build
+        run: bun run build

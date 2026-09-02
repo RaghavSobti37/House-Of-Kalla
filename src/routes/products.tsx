@@ -4,7 +4,9 @@ import { SiteFooter } from "@/components/site-footer";
 import productsHero from "@/assets/products-hero.jpg";
 import productSofa from "@/assets/product-sofa.jpg";
 import productDining from "@/assets/product-dining.jpg";
+import productDiningChair from "@/assets/product-dining-chair.jpg";
 import productSideTable from "@/assets/product-side-table.jpg";
+import productConsole from "@/assets/product-console.jpg";
 import productCoffeeTable from "@/assets/product-coffee-table.jpg";
 import productBed from "@/assets/product-bed.jpg";
 import productTvUnit from "@/assets/product-tv-unit.jpg";
@@ -28,7 +30,9 @@ export const Route = createFileRoute("/products")({
 const products = [
   { name: "Sofas & Corner", image: productSofa },
   { name: "Dining Table", image: productDining },
+  { name: "Dining Chair", image: productDiningChair },
   { name: "Side Table", image: productSideTable },
+  { name: "Console", image: productConsole },
   { name: "Coffee Table", image: productCoffeeTable },
   { name: "Bed", image: productBed },
   { name: "TV Unit", image: productTvUnit },

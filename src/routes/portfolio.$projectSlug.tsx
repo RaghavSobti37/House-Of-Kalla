@@ -46,9 +46,7 @@ function ProjectPage() {
             titleAs="p"
             eyebrowClassName="uppercase"
           />
-          <p className="mt-6 max-w-3xl text-xl leading-relaxed text-black">
-            {project.description}
-          </p>
+          <p className="mt-6 max-w-3xl text-xl leading-relaxed text-black">{project.description}</p>
         </div>
       </section>
 
@@ -73,7 +71,10 @@ function ProjectPage() {
             VIEW MORE LIKE THIS
           </p>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {(related.length ? related : portfolioProjects.filter((item) => item.slug !== project.slug))
+            {(related.length
+              ? related
+              : portfolioProjects.filter((item) => item.slug !== project.slug)
+            )
               .slice(0, 2)
               .map((item) => (
                 <Link

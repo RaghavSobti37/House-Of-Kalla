@@ -20,8 +20,7 @@ const svgUrls = {
   capgemini: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg",
   wns: "https://upload.wikimedia.org/wikipedia/commons/b/bd/WNS_Global_Services_Logo.svg",
   pimco: "https://upload.wikimedia.org/wikipedia/commons/4/49/PIMCO_Logo.svg",
-  techmahindra:
-    "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tech_Mahindra_New_Logo.svg",
+  techmahindra: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tech_Mahindra_New_Logo.svg",
   hero: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Hero_MotoCorp_Logo.svg",
   hdfcbank: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
   "hb-fuller": "https://upload.wikimedia.org/wikipedia/commons/4/4e/H.B._Fuller_logo.svg",

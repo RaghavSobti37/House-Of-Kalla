@@ -77,7 +77,7 @@ const slugOverrides = {
 
 const localSvgMap = {
   "Taj Hotels": "logo-taj.svg",
-  "Hexaware": "logo-hexaware.svg",
+  Hexaware: "logo-hexaware.svg",
   "State Bank of India": "logo-sbi-alt.svg",
   "Bank of Baroda": "logo-bob.svg",
 };
@@ -87,11 +87,7 @@ fs.mkdirSync(outDir, { recursive: true });
 function findSimpleIcon(domain) {
   const override = slugOverrides[domain];
   if (override === null) return null;
-  const slug =
-    override ??
-    domain
-      .replace(/\.(com|org|in|de|market)$/i, "")
-      .replace(/[.-]/g, "");
+  const slug = override ?? domain.replace(/\.(com|org|in|de|market)$/i, "").replace(/[.-]/g, "");
   const key = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
   return simpleIcons[key] ?? null;
 }
@@ -129,7 +125,8 @@ async function fetchAppleTouchIcon(domain) {
     let iconUrl = match[1];
     if (iconUrl.startsWith("//")) iconUrl = `https:${iconUrl}`;
     else if (iconUrl.startsWith("/")) iconUrl = `https://${domain}${iconUrl}`;
-    else if (!/^https?:/i.test(iconUrl)) iconUrl = `https://${domain}/${iconUrl.replace(/^\.\//, "")}`;
+    else if (!/^https?:/i.test(iconUrl))
+      iconUrl = `https://${domain}/${iconUrl.replace(/^\.\//, "")}`;
     const buf = await fetchBuffer(iconUrl);
     if (buf) return buf;
   }
