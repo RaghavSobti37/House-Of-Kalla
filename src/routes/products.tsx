@@ -88,19 +88,25 @@ function ProductsPage() {
 function ProductCard({ name, image }: { name: string; image: string }) {
   return (
     <article className="group">
-      <div className="relative aspect-square overflow-hidden">
-        <img
-          src={image}
-          alt={name}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
-          width={1600}
-          height={1600}
-          loading="lazy"
-        />
-      </div>
-      <h3 className="mt-5 text-center text-sm font-semibold uppercase tracking-[0.22em] text-foreground underline underline-offset-8 decoration-foreground/70">
-        {name}
-      </h3>
+      <Link
+        to="/contact"
+        search={{ product: name }}
+        className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/40"
+      >
+        <div className="relative aspect-square overflow-hidden">
+          <img
+            src={image}
+            alt={name}
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+            width={1600}
+            height={1600}
+            loading="lazy"
+          />
+        </div>
+        <h3 className="mt-5 text-center text-sm font-semibold uppercase tracking-[0.22em] text-foreground underline underline-offset-8 decoration-foreground/70">
+          {name}
+        </h3>
+      </Link>
     </article>
   );
 }

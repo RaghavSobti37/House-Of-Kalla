@@ -160,13 +160,20 @@ function Index() {
         />
         <div className="mt-10 grid items-center gap-8 md:grid-cols-[1fr_1.4fr]">
           <div className="order-2 md:order-1 flex flex-col items-end text-right">
-            <h3 className="text-3xl font-bold md:text-4xl">Korta Center Table</h3>
+            <Link
+              to="/contact"
+              search={{ product: "Korta Center Table" }}
+              className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/40"
+            >
+              <h3 className="text-3xl font-bold md:text-4xl">Korta Center Table</h3>
+            </Link>
             <p className="mt-2 max-w-xl text-xl text-black/85">
               PATENTED BRONZE | COLLECTION OF 2025
             </p>
             <div className="mt-8 flex flex-col gap-3 w-fit">
               <Link
                 to="/contact"
+                search={{ product: "Korta Center Table" }}
                 className="w-full text-center bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90"
               >
                 SPEAK TO THE CURATOR
@@ -174,25 +181,31 @@ function Index() {
             </div>
           </div>
           <div className="order-1 md:order-2">
-            <div className="korta-fade relative aspect-square w-[calc((100%-0.75rem)/2*5/4)] overflow-hidden">
-              <img
-                src={productKorta1}
-                alt="Korta center table — view one"
-                className="absolute inset-0 h-full w-full object-cover"
-                width={700}
-                height={875}
-                loading="lazy"
-              />
-              <img
-                src={productKorta2}
-                alt="Korta center table — view two"
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ animationDelay: "5s" }}
-                width={700}
-                height={875}
-                loading="lazy"
-              />
-            </div>
+            <Link
+              to="/contact"
+              search={{ product: "Korta Center Table" }}
+              className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/40"
+            >
+              <div className="korta-fade relative aspect-square w-[calc((100%-0.75rem)/2*5/4)] overflow-hidden">
+                <img
+                  src={productKorta1}
+                  alt="Korta center table — view one"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  width={700}
+                  height={875}
+                  loading="lazy"
+                />
+                <img
+                  src={productKorta2}
+                  alt="Korta center table — view two"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  style={{ animationDelay: "5s" }}
+                  width={700}
+                  height={875}
+                  loading="lazy"
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </section>

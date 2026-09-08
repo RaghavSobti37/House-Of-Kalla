@@ -10,6 +10,9 @@ import knchanLogo from "../../LOGOS/knchan-navbar.png";
 import kalaaLogo from "../../LOGOS/Asset 7@2x.webp";
 
 export const Route = createFileRoute("/contact")({
+  validateSearch: (search: Record<string, unknown>): { product?: string } => ({
+    product: typeof search.product === "string" && search.product.trim() ? search.product.trim() : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Contact — House of Kalaa" },
@@ -25,7 +28,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { product } = Route.useSearch();
   const [type, setType] = useState<"FURNITURE" | "LUXURY INTERIOR">("FURNITURE");
+  const messageDefault = product ? `Inquiry about: ${product}` : "";
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -121,7 +126,10 @@ function ContactPage() {
                 YOUR MESSAGE
               </label>
               <textarea
+                key={messageDefault}
+                name="message"
                 rows={5}
+                defaultValue={messageDefault}
                 className="mt-2 w-full border border-foreground/20 bg-transparent px-3 py-2 text-sm outline-none focus:border-navy"
               />
             </div>
