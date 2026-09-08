@@ -138,3 +138,25 @@
   animation: kortaDissolve 10s infinite;
   opacity: 0;
 }
+
+/* 4-image crossfade — 4s each, 16s loop (same dissolve feel as korta/project) */
+@keyframes showroomDissolve {
+  0%,
+  20% {
+    opacity: 1;
+  }
+
+  25%,
+  95% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.showroom-fade img {
+  animation: showroomDissolve 16s infinite;
+  opacity: 0;
+}

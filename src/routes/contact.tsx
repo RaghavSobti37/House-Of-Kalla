@@ -5,9 +5,19 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SectionHeading } from "@/components/section-heading";
 import workshop from "@/assets/workshop.jpg";
-import showroom from "@/assets/showroom.jpg";
+import showroomFade1 from "@/assets/showroom-fade-1.jpg";
+import showroomFade2 from "@/assets/showroom-fade-2.jpg";
+import showroomFade3 from "@/assets/showroom-fade-3.jpg";
+import showroomFade4 from "@/assets/showroom-fade-4.jpg";
 import knchanLogo from "../../LOGOS/knchan-navbar.png";
 import kalaaLogo from "../../LOGOS/Asset 7@2x.webp";
+
+const showroomFadeImages = [
+  { src: showroomFade1, alt: "House of Kalaa showroom bedroom suite" },
+  { src: showroomFade2, alt: "Showroom arched bedside niche and headboard" },
+  { src: showroomFade3, alt: "Showroom bedside niche with integrated outlets" },
+  { src: showroomFade4, alt: "Showroom bed with lit arched nightstand" },
+];
 
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): { product?: string } => ({
@@ -175,11 +185,20 @@ function ContactPage() {
               VIEW ON MAP
             </a>
           </div>
-          <img
-            src={showroom}
-            alt="House of Kalaa showroom"
-            className="hidden md:block aspect-[4/5] w-full max-w-[440px] justify-self-end object-cover"
-          />
+          <div className="showroom-fade relative hidden aspect-square w-full max-w-[440px] justify-self-end overflow-hidden md:block">
+            {showroomFadeImages.map((image, index) => (
+              <img
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ animationDelay: `${index * 4}s` }}
+                width={880}
+                height={880}
+                loading="lazy"
+              />
+            ))}
+          </div>
         </div>
       </section>
 
