@@ -10,6 +10,7 @@ import {
 import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { jsonLd, organizationSchema, websiteSchema } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -73,27 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "House of Kalaa - Where Craft Becomes Home" },
-      {
-        name: "description",
-        content:
-          "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India.",
-      },
       { name: "author", content: "House of Kalaa" },
-      { property: "og:title", content: "House of Kalaa - Where Craft Becomes Home" },
-      {
-        property: "og:description",
-        content:
-          "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "House of Kalaa - Where Craft Becomes Home" },
-      {
-        name: "twitter:description",
-        content:
-          "Furniture and interiors for those who live with intention. 35 years of architectural precision from Nashik, India.",
-      },
     ],
     links: [
       {
@@ -109,6 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap",
       },
     ],
+    scripts: [jsonLd(organizationSchema()), jsonLd(websiteSchema())],
   }),
   shellComponent: RootShell,
   component: RootComponent,

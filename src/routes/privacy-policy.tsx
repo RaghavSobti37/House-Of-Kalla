@@ -1,16 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { absoluteUrl, breadcrumbSchema, createSeo, jsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
-    meta: [
-      { title: "Privacy Policy — House of Kalaa" },
-      {
-        name: "description",
-        content:
-          "How House of Kalaa collects, uses, and protects information submitted through our website and inquiry form.",
-      },
+    ...createSeo({
+      title: "Privacy Policy",
+      description:
+        "How House of Kalaa collects, uses, and protects information submitted through the website and inquiry form.",
+      path: "/privacy-policy",
+    }),
+    scripts: [
+      jsonLd(
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy-policy" },
+        ]),
+      ),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "House of Kalaa Privacy Policy",
+        url: absoluteUrl("/privacy-policy"),
+        description:
+          "How House of Kalaa collects, uses, and protects information submitted through the website and inquiry form.",
+      }),
     ],
   }),
   component: PrivacyPolicyPage,
@@ -207,10 +222,10 @@ function PrivacyPolicyPage() {
               </p>
               <p>
                 <a
-                  href="https://house-of-kalla.vercel.app"
+                  href="https://www.houseofkalaa.studio"
                   className="text-navy underline-offset-2 hover:underline"
                 >
-                  https://house-of-kalla.vercel.app
+                  https://www.houseofkalaa.studio
                 </a>
               </p>
             </div>

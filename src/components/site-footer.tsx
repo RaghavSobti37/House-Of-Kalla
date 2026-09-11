@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import logo from "../../LOGOS/Asset 8@2x.webp";
 
 export function SiteFooter() {
@@ -67,18 +67,13 @@ export function SiteFooter() {
             </p>
             <div className="mt-5 flex justify-start sm:justify-end gap-3">
               <a
-                href="#"
+                href="https://wa.me/917774048818"
                 aria-label="WhatsApp"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full border border-white/20 p-2 hover:border-white/60"
               >
                 <MessageCircle className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="rounded-full border border-white/20 p-2 hover:border-white/60"
-              >
-                <Instagram className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -87,7 +82,7 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex flex-col sm:flex-row gap-2 max-w-[1400px] items-center justify-between px-6 py-4 text-[10px] tracking-[0.1em] text-white/40 md:px-10">
           <span>© HOUSE OF KALAA · ALL RIGHTS RESERVED</span>
-          <span className="text-red-400">THIS SITE IS UNDER CONSTRUCTION</span>
+          <span>WHERE CRAFT BECOMES HOME</span>
           <span>DESIGNED BY D'Mosh Global</span>
         </div>
       </div>

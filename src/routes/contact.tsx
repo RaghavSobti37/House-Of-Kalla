@@ -11,6 +11,15 @@ import showroomFade3 from "@/assets/showroom-fade-3.jpg";
 import showroomFade4 from "@/assets/showroom-fade-4.jpg";
 import knchanLogo from "../../LOGOS/knchan-navbar.png";
 import kalaaLogo from "../../LOGOS/Asset 7@2x.webp";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  STUDIO_ADDRESS,
+  absoluteUrl,
+  breadcrumbSchema,
+  createSeo,
+  jsonLd,
+} from "@/lib/seo";
 
 const showroomFadeImages = [
   { src: showroomFade1, alt: "House of Kalaa showroom bedroom suite" },
@@ -21,17 +30,48 @@ const showroomFadeImages = [
 
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): { product?: string } => ({
-    product: typeof search.product === "string" && search.product.trim() ? search.product.trim() : undefined,
+    product:
+      typeof search.product === "string" && search.product.trim()
+        ? search.product.trim()
+        : undefined,
   }),
   head: () => ({
-    meta: [
-      { title: "Contact — House of Kalaa" },
-      {
-        name: "description",
-        content: "Begin your journey. A private consultation for collectors and architects.",
-      },
-      { property: "og:title", content: "Contact — House of Kalaa" },
-      { property: "og:description", content: "Your space deserves better." },
+    ...createSeo({
+      title: "Contact House of Kalaa",
+      description:
+        "Book a private consultation with House of Kalaa for bespoke furniture, luxury interiors, factory visits, and project inquiries in Nashik.",
+      path: "/contact",
+      keywords: [
+        "contact House of Kalaa",
+        "interior design consultation Nashik",
+        "furniture consultation",
+        "Nashik design studio",
+      ],
+    }),
+    scripts: [
+      jsonLd(
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]),
+      ),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        name: "Contact House of Kalaa",
+        url: absoluteUrl("/contact"),
+        description:
+          "Book a consultation for bespoke furniture, luxury interiors, factory visits, and project inquiries.",
+        mainEntity: {
+          "@type": "LocalBusiness",
+          "@id": `${absoluteUrl("/")}#organization`,
+          name: "House of Kalaa",
+          telephone: CONTACT_PHONE,
+          email: CONTACT_EMAIL,
+          address: STUDIO_ADDRESS,
+          openingHours: "Mo-Sa 10:00-19:00",
+        },
+      }),
     ],
   }),
   component: ContactPage,

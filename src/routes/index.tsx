@@ -9,8 +9,44 @@ import { portfolioProjects } from "@/lib/portfolio-data";
 import { clientLogos } from "@/lib/client-logos";
 import { ClientLogoMark } from "@/components/client-logo-mark";
 import { SectionHeading } from "@/components/section-heading";
+import { absoluteUrl, createSeo, jsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
+  head: () => {
+    const seo = createSeo({
+      title: "Luxury Interiors and Bespoke Furniture in Nashik",
+      description:
+        "House of Kalaa creates luxury interiors and bespoke furniture for homes, hospitality spaces, and commercial projects with 35 years of craft-led execution.",
+      path: "/",
+      keywords: [
+        "luxury interiors Nashik",
+        "bespoke furniture Nashik",
+        "premium furniture studio",
+        "interior design Maharashtra",
+      ],
+    });
+
+    return {
+      ...seo,
+      scripts: [
+        jsonLd({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Luxury Interiors and Bespoke Furniture in Nashik",
+          url: absoluteUrl("/"),
+          description:
+            "House of Kalaa creates luxury interiors and bespoke furniture for homes, hospitality spaces, and commercial projects.",
+          mainEntity: {
+            "@type": "Service",
+            name: "Luxury interior design and bespoke furniture",
+            provider: { "@id": `${absoluteUrl("/")}#organization` },
+            areaServed: ["Nashik", "Pune", "Maharashtra", "India"],
+            serviceType: ["Interior design", "Bespoke furniture", "Turnkey interiors"],
+          },
+        }),
+      ],
+    };
+  },
   component: Index,
 });
 

@@ -5,17 +5,54 @@ import { SiteFooter } from "@/components/site-footer";
 import { TitlePairing } from "@/components/title-pairing";
 import handsCraft from "@/assets/hands-craft.jpg";
 import { portfolioProjects, type ProjectCategory } from "@/lib/portfolio-data";
+import { absoluteUrl, breadcrumbSchema, createSeo, jsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/portfolio/")({
   head: () => ({
-    meta: [
-      { title: "Portfolio - House of Kalaa" },
-      {
-        name: "description",
-        content: "Selected hospitality and commercial projects by House of Kalaa.",
-      },
-      { property: "og:title", content: "Portfolio - House of Kalaa" },
-      { property: "og:description", content: "Every project begins with a conversation." },
+    ...createSeo({
+      title: "Interior Design Portfolio",
+      description:
+        "View House of Kalaa's selected hospitality and commercial interiors, including Taj Nashik, Taj Pune, Bafna Jewellers, and corporate office spaces.",
+      path: "/portfolio",
+      keywords: [
+        "interior design portfolio",
+        "hospitality interiors India",
+        "commercial interiors Nashik",
+        "Taj Pune interiors",
+        "Bafna Jewellers showroom",
+      ],
+    }),
+    scripts: [
+      jsonLd(
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Portfolio", path: "/portfolio" },
+        ]),
+      ),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Interior Design Portfolio",
+        url: absoluteUrl("/portfolio"),
+        description:
+          "Selected hospitality and commercial interior design projects by House of Kalaa.",
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: portfolioProjects.map((project, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "CreativeWork",
+              name: project.name,
+              url: absoluteUrl(`/portfolio/${project.slug}`),
+              about: project.service,
+              genre: project.category,
+              description: project.description,
+              creator: { "@id": `${absoluteUrl("/")}#organization` },
+            },
+          })),
+        },
+      }),
     ],
   }),
   component: PortfolioPage,

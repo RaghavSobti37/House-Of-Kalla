@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { TitlePairing } from "@/components/title-pairing";
 import { portfolioProjects } from "@/lib/portfolio-data";
+import { absoluteUrl, breadcrumbSchema, createSeo, jsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/portfolio/$projectSlug")({
   loader: ({ params }) => {
@@ -11,6 +12,44 @@ export const Route = createFileRoute("/portfolio/$projectSlug")({
       throw notFound();
     }
     return project;
+  },
+  head: ({ loaderData: project }) => {
+    const seo = createSeo({
+      title: `${project.name} Interior Design Project`,
+      description: `${project.description} Explore ${project.name}, a ${project.category.toLowerCase()} project by House of Kalaa.`,
+      path: `/portfolio/${project.slug}`,
+      type: "article",
+      keywords: [
+        `${project.name} interiors`,
+        project.service,
+        `${project.category.toLowerCase()} interior design`,
+        "House of Kalaa portfolio",
+      ],
+    });
+
+    return {
+      ...seo,
+      scripts: [
+        jsonLd(
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Portfolio", path: "/portfolio" },
+            { name: project.name, path: `/portfolio/${project.slug}` },
+          ]),
+        ),
+        jsonLd({
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: project.name,
+          url: absoluteUrl(`/portfolio/${project.slug}`),
+          description: project.description,
+          about: project.service,
+          genre: project.category,
+          creator: { "@id": `${absoluteUrl("/")}#organization` },
+          dateModified: "2026-09-11",
+        }),
+      ],
+    };
   },
   component: ProjectPage,
 });

@@ -6,17 +6,38 @@ import workshop from "@/assets/workshop.jpg";
 import teamSanjay from "@/assets/team-sanjay.jpg";
 import teamDirector from "@/assets/team-director.jpg";
 import teamKalpeet from "@/assets/team-kalpeet.jpg";
+import { absoluteUrl, breadcrumbSchema, createSeo, jsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About — House of Kalaa" },
-      {
-        name: "description",
-        content: "35 years of mastery. The hands and heritage behind House of Kalaa.",
-      },
-      { property: "og:title", content: "About — House of Kalaa" },
-      { property: "og:description", content: "We do not design rooms. We compose atmospheres." },
+    ...createSeo({
+      title: "About House of Kalaa",
+      description:
+        "Meet House of Kalaa, a Nashik luxury interiors and furniture studio built on 35 years of craft, workshop transparency, and turnkey execution.",
+      path: "/about",
+      keywords: [
+        "House of Kalaa about",
+        "Nashik furniture studio",
+        "luxury interiors heritage",
+        "Knchan Associates",
+      ],
+    }),
+    scripts: [
+      jsonLd(
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]),
+      ),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        name: "About House of Kalaa",
+        url: absoluteUrl("/about"),
+        description:
+          "House of Kalaa is a Nashik-based interiors and furniture studio with 35 years of legacy in craft-led interiors.",
+        mainEntity: { "@id": `${absoluteUrl("/")}#organization` },
+      }),
     ],
   }),
   component: AboutPage,

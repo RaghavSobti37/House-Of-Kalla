@@ -10,22 +10,7 @@ import productConsole from "@/assets/product-console.jpg";
 import productCoffeeTable from "@/assets/product-coffee-table.jpg";
 import productBed from "@/assets/product-bed.jpg";
 import productTvUnit from "@/assets/product-tv-unit.jpg";
-
-export const Route = createFileRoute("/products")({
-  head: () => ({
-    meta: [
-      { title: "Products — House of Kalaa" },
-      {
-        name: "description",
-        content:
-          "A curated collection of contemporary masterworks. Seating, tables, storage and bespoke design.",
-      },
-      { property: "og:title", content: "Products — House of Kalaa" },
-      { property: "og:description", content: "Every piece here, has been chosen." },
-    ],
-  }),
-  component: ProductsPage,
-});
+import { absoluteUrl, breadcrumbSchema, createSeo, jsonLd } from "@/lib/seo";
 
 const products = [
   { name: "Sofas & Corner", image: productSofa },
@@ -37,6 +22,55 @@ const products = [
   { name: "Bed", image: productBed },
   { name: "TV Unit", image: productTvUnit },
 ];
+
+export const Route = createFileRoute("/products")({
+  head: () => ({
+    ...createSeo({
+      title: "Luxury Furniture and Bespoke Products",
+      description:
+        "Explore House of Kalaa's curated furniture categories, including sofas, dining tables, chairs, side tables, consoles, beds, TV units, and custom pieces.",
+      path: "/products",
+      keywords: [
+        "luxury furniture Nashik",
+        "bespoke furniture India",
+        "custom sofa",
+        "designer dining table",
+        "premium TV unit",
+      ],
+    }),
+    scripts: [
+      jsonLd(
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Products", path: "/products" },
+        ]),
+      ),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Luxury Furniture and Bespoke Products",
+        url: absoluteUrl("/products"),
+        description:
+          "Curated furniture categories by House of Kalaa, from sofas and dining tables to custom storage and beds.",
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: products.map((product, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            item: {
+              "@type": "Product",
+              name: product.name,
+              category: "Luxury furniture",
+              brand: { "@id": `${absoluteUrl("/")}#organization` },
+              url: absoluteUrl(`/contact?product=${encodeURIComponent(product.name)}`),
+            },
+          })),
+        },
+      }),
+    ],
+  }),
+  component: ProductsPage,
+});
 
 function ProductsPage() {
   return (
