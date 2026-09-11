@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { FormEvent } from "react";
 import { useState } from "react";
 import { MapPin, Clock } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
@@ -80,7 +81,42 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const { product } = Route.useSearch();
   const [type, setType] = useState<"FURNITURE" | "LUXURY INTERIOR">("FURNITURE");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
   const messageDefault = product ? `Inquiry about: ${product}` : "";
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    setStatusMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ...payload, inquiryType: type }),
+      });
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to send inquiry.");
+      }
+
+      form.reset();
+      setStatus("success");
+      setStatusMessage("Your inquiry has been sent. We will get back to you shortly.");
+    } catch (error) {
+      setStatus("error");
+      setStatusMessage(
+        error instanceof Error ? error.message : "Unable to send inquiry. Please try again.",
+      );
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -144,7 +180,7 @@ function ContactPage() {
             </a>
           </div>
 
-          <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="grid gap-3 sm:grid-cols-2">
               {(["FURNITURE", "LUXURY INTERIOR"] as const).map((t) => (
                 <button
@@ -181,10 +217,23 @@ function ContactPage() {
                 rows={5}
                 defaultValue={messageDefault}
                 className="mt-2 w-full border border-foreground/20 bg-transparent px-3 py-2 text-sm outline-none focus:border-navy"
+                required
               />
             </div>
-            <button className="bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90">
-              SEND INQUIRY
+            {statusMessage ? (
+              <p
+                className={`text-sm ${status === "success" ? "text-green-700" : "text-red-700"}`}
+                role="status"
+              >
+                {statusMessage}
+              </p>
+            ) : null}
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="bg-gold px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-white hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {status === "sending" ? "SENDING..." : "SEND INQUIRY"}
             </button>
           </form>
         </div>
@@ -269,6 +318,7 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         id={name}
         name={name}
         type={type}
+        required={["name", "fullName", "email", "phone"].includes(name)}
         className="mt-2 w-full border border-foreground/20 bg-transparent px-3 py-2 text-sm outline-none focus:border-navy"
       />
     </div>
@@ -305,6 +355,7 @@ function FurnitureFields() {
     <>
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="NAME" name="name" />
+        <Field label="EMAIL" name="email" type="email" />
         <Field label="PHONE NUMBER" name="phone" type="tel" />
       </div>
       <div className="grid gap-5 md:grid-cols-2">
@@ -336,6 +387,7 @@ function InteriorFields() {
     <>
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="FULL NAME" name="fullName" />
+        <Field label="EMAIL" name="email" type="email" />
         <Field label="PHONE NUMBER" name="phone" type="tel" />
       </div>
       <div className="grid gap-5 md:grid-cols-2">
