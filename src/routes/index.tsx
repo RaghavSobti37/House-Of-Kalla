@@ -65,8 +65,8 @@ function Index() {
             src={heroBedroom}
             alt="Bespoke bedroom interior by House of Kalaa"
             className="absolute inset-0 h-full w-full object-cover"
-            width={2400}
-            height={1350}
+            width={3840}
+            height={2160}
             fetchPriority="high"
             decoding="async"
           />
