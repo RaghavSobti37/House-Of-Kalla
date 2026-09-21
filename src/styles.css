@@ -87,6 +87,17 @@
   }
 }
 
+/* Black ribbon: faster on phone, still quicker than old 56s on desktop */
+.ribbon-marquee {
+  animation: marquee 24s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .ribbon-marquee {
+    animation-duration: 34s;
+  }
+}
+
 @keyframes marqueeReverse {
   from {
     transform: translate3d(-50%, 0, 0);

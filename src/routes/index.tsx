@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import heroKitchen from "@/assets/hero-kitchen.jpg";
+import heroBedroom from "@/assets/hero-bedroom.jpg";
 import productKorta1 from "@/assets/product-korta-1.jpg";
 import productKorta2 from "@/assets/product-korta-2.jpg";
 import { portfolioProjects } from "@/lib/portfolio-data";
@@ -62,11 +62,13 @@ function Index() {
         <SiteNav transparent />
         <div className="relative h-[86vh] min-h-[620px] w-full overflow-hidden">
           <img
-            src={heroKitchen}
-            alt="Bespoke kitchen interior by House of Kalaa"
+            src={heroBedroom}
+            alt="Bespoke bedroom interior by House of Kalaa"
             className="absolute inset-0 h-full w-full object-cover"
-            width={1920}
-            height={1000}
+            width={2400}
+            height={1350}
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
           <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 md:px-10 md:pb-20">
@@ -97,7 +99,7 @@ function Index() {
       </section>
 
       <div className="bg-ink py-3 text-white overflow-hidden">
-        <div className="flex animate-[marquee_56s_linear_infinite] whitespace-nowrap text-[11px] font-medium tracking-[0.28em] text-white/70">
+        <div className="ribbon-marquee flex whitespace-nowrap text-[11px] font-medium tracking-[0.28em] text-white/70">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="px-8">
               CURATED FURNITURE ~ TRANSPARENT PRODUCTION LINE ~ 35 YEARS OF LEGACY ~
